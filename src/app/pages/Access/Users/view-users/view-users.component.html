@@ -1,0 +1,55 @@
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="hero">
+    <div class="header">
+        <button class="filter-btn">
+            <i class="material-icons">filter_list</i> Filter
+        </button>
+        <div class="search-bar1">
+            <input type="text" placeholder="Search by name/roles">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <button class="add-btn" (click)="goToAddUser()">
+            <i class="material-icons custom-icon">add</i>
+            Add New
+        </button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>Name</th>
+                <th>Roles</th>
+                <th>Phone</th>
+                <th>Blood Group</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td><input type="checkbox"></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.bloodGroup }}</td>
+                <td>{{ user.status }}</td>
+                <td class="actions">
+                    <i class="fa-solid fa-pen edit"></i> 
+                    <i class="fa-solid fa-eye view"></i> 
+                    <i class="fa-solid fa-trash delete"></i> 
+                </td>
+                
+    
+    
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span (click)="previousPage()">Previous</span>
+        <span (click)="nextPage()">Next &raquo;</span>
+    </div>
+
+</div>

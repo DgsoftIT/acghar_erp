@@ -1,0 +1,205 @@
+/* Base Styles for Desktop */
+body {
+  display: flex;
+  justify-content: flex-end; /* Moves everything to the right */
+  align-items: center;
+  height: 100vh;
+  background: #f4f4f4;
+  margin: 0;
+  padding-right: 100px; /* Fine-tune the right positioning */
+}
+
+.table-container {
+  width: 100%;
+  max-width: 1200px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 300px; /* Moves to the right */
+  margin-top: 150px;  /* Moves slightly down */
+  min-height: 500px; /* Adjust this value to make it taller */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.search-bar1 {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  margin-left: auto;
+  position: relative;
+  left: -20px;
+}
+
+.search-bar1 input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 6px;
+  flex: 1; /* Allow it to grow but not beyond max-width */
+  max-width: 170px;
+}
+
+.search-btn {
+  background: #ff7b54;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: -10px;
+}
+.search-btn i {
+  color: white;
+}
+.add-btn {
+  background: #7BC0F4;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  height: auto;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: left;
+  font-size: 18px;
+}
+table th {
+  background: #7BC0F4;
+  color: black;
+}
+.actions i {
+  margin: 0 5px;
+  cursor: pointer;
+}
+.edit { color: black; }
+.view { color: #7BC0F4; }
+.delete { color: red; }
+.refresh-btn {
+  background: #7BC0F4;
+  color: black;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.icon-group {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end; /* Align icons to the right */
+  align-items: center; /* Align icons vertically */
+  width: 100%; /* Ensure it takes full width of the container */
+  margin-top: -30px;
+  position: relative;
+  top: -40px;
+}
+.icon-circle {
+  width: 35px;
+  height: 35px;
+  background: #F14402;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.filter-btn {
+  background: #ff7b54;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Mobile Responsive Styles */
+
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    max-width: none; /* Remove max-width for smaller screens */
+    margin-left: 0;
+    padding: 10px;
+    height: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .search-bar1,
+  .search-bar2 {
+    width: 100%;
+    margin-left: 0;
+    position: static;
+    top: 0;
+    left: 0;
+  }
+
+  .search-bar1 input,
+  .search-bar2 input {
+    max-width: 100%;
+  }
+
+  .search-btn {
+    width: 100%;
+    left: 0;
+  }
+
+  .icon-group {
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    top: 0;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+  }
+
+  table th, table td {
+    padding:5px;
+  }
+
+  .actions i {
+    margin: 0 10px;
+  }
+}  

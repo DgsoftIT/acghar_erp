@@ -1,0 +1,106 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Sidebar Navigation -->
+
+<div class="top-container">
+  <button class="refresh-btn">
+    <i class="material-icons custom-icon">refresh</i> Refresh
+  </button>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Item ID/Cart ID/Order ID">
+    <button class="search-btn">
+      <i class="material-icons custom-icon">search</i> 
+    </button>
+  </div>
+
+  <div class="icon-group">
+    <div class="icon-circle"><i class="material-icons custom-icon">mark_unread_chat_alt</i></div>
+    <div class="icon-circle"><i class="material-icons custom-icon">notifications</i></div>
+    <div class="icon-circle"><i class="material-icons custom-icon">settings</i></div>
+  </div>
+</div>
+
+<div class="nav-items">
+  <div class="user-info">
+    <img src="assets/login/admin.png" alt="Admin Dashboard" class="users">
+    <span class="name">AC Ghar Admin</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">dashboard</i>
+    <span>Dashboard</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">real_estate_agent</i>
+    <span>Sales</span>
+  </div>
+
+  <!-- Catalog Menu with Dropdown -->
+  <div class="nav-item" (click)="toggleCatalogSubMenu()">
+    <div class="nav-text">
+      <i class="material-icons custom-icon">category</i>
+      Catalog
+      <i class="material-icons custom-icon" [ngClass]="isCatalogSubMenuVisible ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"></i>
+    </div>
+  </div>
+  <ul class="sub-menu1" [ngClass]="{ 'show': isCatalogSubMenuVisible }">
+    <li><a routerLink="/admin/category"><i class="material-icons custom-icon">density_medium</i>Category</a></li>
+    <li><a routerLink="/admin/product"><i class="material-icons custom-icon">inventory</i>Product</a></li>
+    <li><a routerLink="/admin/brand"><i class="material-icons custom-icon">storage</i>Brand</a></li>
+    <li><a routerLink="/admin/product-type"><i class="material-icons custom-icon">toc</i>Product Type</a></li>
+    <li><a routerLink="/admin/product-custom-attribute"><i class="material-icons custom-icon">low_priority</i>Product Custom Attribute</a></li>
+  </ul>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">home</i>
+    <span>Home Page</span>
+  </div>
+
+  <div class="nav-item"> 
+    <i class="material-icons custom-icon">content_copy</i>
+    <span>Content Section</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">apps</i>
+    <span>Ecommerce Setting</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">menu_open</i>
+    <span>CMS Dashboard</span>
+  </div>
+
+  <!-- Access Menu with Dropdown -->
+  <div class="nav-item" (click)="toggleAccessSubMenu()">
+    <i class="material-icons custom-icon">groups</i>
+    <span>Access</span>
+  </div>
+  <ul class="sub-menu2" [ngClass]="{ 'show': isAccessSubMenuVisible }">
+    <li><a routerLink="/view-users"><i class="material-icons custom-icon">group</i>User</a></li>
+    
+    <li><a routerLink="/view-user-roles"><i class="material-icons custom-icon">badge</i>Roles</a></li>
+    <li><a routerLink="/admin/Profile"><i class="material-icons custom-icon">person_2</i>Profile</a></li>
+    <li><a routerLink="/admin/Privilege"><i class="material-icons custom-icon">military_tech</i>Privilege</a></li>
+    <li><a routerLink="/admin/Vendor Profile"><i class="material-icons custom-icon">supervisor_account</i>Vendor Profile</a></li>
+  </ul>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">summarize</i>
+    <span>Reports</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">group_add</i>
+    <span>Employee</span>
+  </div>
+
+  <div class="nav-item">
+    <i class="material-icons custom-icon">share</i>
+    <span>Vendor</span>
+  </div>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

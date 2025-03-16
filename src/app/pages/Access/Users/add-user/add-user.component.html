@@ -1,0 +1,32 @@
+<div class="container">
+  <button class="refresh-btn">
+    <i class="bi bi-arrow-clockwise"></i> Refresh
+  </button>
+<p><u>Add user</u></p>
+
+  <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" formControlName="name" placeholder="Enter name">
+    <div *ngIf="name?.invalid && name?.touched" class="error">Name is required.</div>
+
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="Enter email">
+    <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid email.</div>
+
+    <label>Roles</label>
+    <input type="text" formControlName="roles" placeholder="Enter roles">
+    <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
+
+    <label>Phone Number</label>
+    <input type="text" formControlName="phoneNumber" placeholder="Enter phone number">
+    <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched" class="error">Enter a valid 10-digit phone number.</div>
+
+    <label>Blood Group</label>
+    <input type="text" formControlName="bloodGroup" placeholder="Enter blood group">
+    <div *ngIf="bloodGroup?.invalid && bloodGroup?.touched" class="error">Blood group is required.</div>
+
+    <button class="save-btn" [disabled]="addUserForm.invalid">
+      <i class="bi bi-save2"></i> Save
+    </button>
+  </form>
+</div>

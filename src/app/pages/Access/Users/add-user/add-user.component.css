@@ -1,0 +1,81 @@
+.container {
+  background: white;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 200%; /* Adjusted width */
+  max-width: 800px;
+  height: 700px;
+  margin: 40px auto; /* Moves it lower */
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px; 
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+input:focus {
+  border-color: #3182ce;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 10px; 
+  border-radius: 8px; 
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  width: 15%; /* Full width */
+  max-width: 200px; /* Maximum width */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.save-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.refresh-btn {
+  background: #7BC0F4;
+  color: black;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

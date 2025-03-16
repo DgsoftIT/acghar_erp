@@ -1,0 +1,238 @@
+/* Base Styles for Desktop */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 700%;
+    height: 800px;
+    max-width: 2500px;
+    margin-left: -400px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .search-bar1 {
+    display: flex;
+    align-items: center;
+    background: #eee;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 210px;
+    margin-left: auto;
+    position: relative;
+    left: -20px;
+  }
+  .search-bar2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: -30px;
+  }
+  .search-bar1 input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 6px;
+    flex: 1; /* Allow it to grow but not beyond max-width */
+    max-width: 175px;
+  }
+  .search-bar2 input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 6px;
+    flex: 1; /* Allow it to grow but not beyond max-width */
+    max-width: 200px;
+  }
+  .search-btn {
+    background: #ff7b54;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: -10px;
+  }
+  .search-btn i {
+    color: white;
+  }
+  .add-btn {
+      background-color: #7BC0F4;
+      color: black;
+      border: none;
+      padding: 8px 13px;
+      font-size: 14px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  table th {
+    background: #7BC0F4;
+    color: black;
+  }
+  .actions i {
+    margin: 0 3px;
+    cursor: pointer;
+    justify-content: center
+  }
+  .edit { color: black; }
+  .view { color: #7BC0F4; }
+  .delete { color: red; }
+  .refresh-btn {
+    background: #7BC0F4;
+    color: black;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .icon-group {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end; /* Align icons to the right */
+    align-items: center; /* Align icons vertically */
+    width: 100%; /* Ensure it takes full width of the container */
+    margin-top: -30px;
+    position: relative;
+    top: -40px;
+  }
+  .icon-circle {
+    width: 35px;
+    height: 35px;
+    background: #F14402;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .filter-btn {
+    background: #ff7b54;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      width: 10%;
+      max-width: none; /* Remove max-width for smaller screens */
+      margin-left: 0;
+      padding: 10px;
+      height: auto;
+    }
+  
+    .header {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+  
+    .search-bar1,
+    .search-bar2 {
+      width: 100%;
+      margin-left: 0;
+      position: static;
+      top: 0;
+      left: 0;
+    }
+  
+    .search-bar1 input,
+    .search-bar2 input {
+      max-width: 100%;
+    }
+  
+    .search-btn {
+      width: 100%;
+      left: 0;
+    }
+    
+  
+    .icon-group {
+      justify-content: center;
+      margin-top: 10px;
+      position: relative;
+      top: 0;
+    }
+  
+    .pagination {
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+    }
+  
+    table th, table td {
+      padding:5px;
+    }
+  
+    .actions i {
+      margin: 0 10px;
+    }
+    .profile-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+    
+    .profile-icon i {
+        font-size: 22px;
+        color: #333;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    .profile-icon i:hover {
+        color: #007bff;
+    }
+    
+  }  
