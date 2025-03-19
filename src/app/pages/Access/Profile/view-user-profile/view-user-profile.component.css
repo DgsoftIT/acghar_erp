@@ -17,8 +17,8 @@ body {
     height: 700px;
     max-width: 1200px;
     position: absolute;
-    top: 100px; /* Moves it further down */
-    right: 120px; /* Moves it further left */
+    top: 100px; 
+    right: 120px; 
   }
   
 
@@ -114,9 +114,9 @@ body {
   .icon-group {
     display: flex;
     gap: 8px;
-    justify-content: flex-end; /* Align icons to the right */
-    align-items: center; /* Align icons vertically */
-    width: 100%; /* Ensure it takes full width of the container */
+    justify-content: flex-end; 
+    align-items: center; 
+    width: 100%; 
     margin-top: -30px;
     position: relative;
     top: -40px;

@@ -1,1 +1,35 @@
-<p>add-user-roles works!</p>
+<div class="container">
+    <p><u>Add User</u></p>
+  
+    
+      
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="Enter name">
+        <div *ngIf="name?.invalid && name?.touched" class="error">Name is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Id</label>
+        <input type="email" formControlName="email" placeholder="Enter email">
+        <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid Id.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Roles</label>
+        <input type="text" formControlName="roles" placeholder="Enter roles">
+        <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Pan Number</label>
+        <input type="text" formControlName="phoneNumber" placeholder="Enter phone number">
+        <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched" class="error">Enter a valid pan Number.</div>
+      </div>
+  
+      
+      <button class="save-btn" [disabled]="addUserForm.invalid">
+        <i class="bi bi-save2"></i> Save
+      </button>
+  </div>
+  

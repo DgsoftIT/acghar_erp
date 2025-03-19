@@ -33,7 +33,7 @@ body {
   align-items: center;
   
   cursor: pointer;
-  margin-left: 700px;
+  margin-left: 350px;
 }
 
 .refresh-btn i {
@@ -44,11 +44,12 @@ body {
   display: flex;
   align-items: center;
   background: #d3d3d3;
-  padding: 8px 13px;
+  padding: 6px 10px;
   font-size: 14px;
   border-radius: 28px;
   width: 100%;
   max-width: 300px;
+  margin-left: 800px;
 }
 
 .search-bar input {
@@ -181,6 +182,7 @@ body {
     display: none; 
     transition: max-height 0.3s ease-in-out; 
     overflow: hidden;
+    text-decoration: none;
   }
   .sub-menu a {
     text-decoration: none; 
@@ -214,6 +216,7 @@ body {
     display: none; 
     transition: max-height 0.3s ease-in-out; 
     overflow: hidden;
+    text-decoration: none;
   }
   
   .sub-menu2.show {
@@ -225,6 +228,7 @@ body {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.2s;
+    
   }
   
   .sub-menu2 li:hover {

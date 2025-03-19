@@ -6,8 +6,7 @@
     width: 100%;
     max-width: 1000px;
     margin: 40px auto;
-    margin-top: 80px; 
-   
+    margin-top: 80px;
   }
   
   .form-group {
@@ -40,7 +39,12 @@
     outline: none;
   }
   
-  /* Button Styling */
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
   .save-btn {
     background: #ff7b54;
     border: none;
@@ -58,6 +62,11 @@
   
   .save-btn:hover {
     background: #e66a46;
+  }
+  
+  .save-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
   
   .save-btn i {

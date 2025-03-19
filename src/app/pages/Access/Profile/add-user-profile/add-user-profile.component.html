@@ -1,0 +1,41 @@
+<div class="container">
+    <p><u>Add User Profile</u></p>
+  
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" formControlName="name" placeholder="Enter name">
+        <div *ngIf="name?.invalid && name?.touched" class="error">Name is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>ID</label>
+        <input type="text" formControlName="id" placeholder="Enter ID">
+        <div *ngIf="id?.invalid && id?.touched" class="error">ID is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Roles</label>
+        <input type="text" formControlName="roles" placeholder="Enter roles">
+        <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Status</label>
+        <input type="text" formControlName="status" placeholder="Enter status">
+        <div *ngIf="status?.invalid && status?.touched" class="error">Status is required.</div>
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter email">
+        <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid email.</div>
+      </div>
+  
+      <button class="save-btn" [disabled]="addUserForm.invalid">
+        <i class="bi bi-save2"></i> Save
+      </button>
+  
+    </form>
+</div>

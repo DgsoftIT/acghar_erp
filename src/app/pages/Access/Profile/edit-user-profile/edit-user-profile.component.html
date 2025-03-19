@@ -1,0 +1,43 @@
+<div class="profile-container">
+    <div class="top-bar">
+      <i class="fas fa-arrow-left back-icon" (click)="goBack()"></i>
+      <i class="fas fa-cog settings-icon"></i>
+    </div>
+    <h2>Profile</h2>
+    <img class="profile-img" src="assets/login/admin.png" alt="Profile Picture">
+    <h3>Midea</h3>
+  
+    <div class="form-container">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="user.name">
+      </div>
+  
+      <div class="form-group">
+        <label>ID</label>
+        <input type="email" [(ngModel)]="user.email">
+      </div>
+  
+      <div class="form-group">
+        <label>Roles</label>
+        <input type="text" [(ngModel)]="user.contact">
+      </div>
+  
+      <div class="form-group">
+        <label>Status</label>
+        <input type="text" [(ngModel)]="user.address">
+      </div>
+  
+      <div class="form-group">
+        <label>Pan Number</label>
+        <input type="text" [(ngModel)]="user.panNumber">
+      </div>
+    </div>
+  
+    <div class="button-group">
+      <button class="btn save-btn" (click)="saveProfile()">Save</button>
+      <button class="btn edit-btn" (click)="editProfile()">Edit Profile</button>
+      <button class="btn view-btn" (click)="viewDocument()">View Document</button>
+    </div>
+  </div>
+  

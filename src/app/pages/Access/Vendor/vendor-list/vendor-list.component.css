@@ -1,4 +1,3 @@
-/* Base Styles for Desktop */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -21,12 +20,25 @@ body {
     right: 120px; /* Moves it further left */
   }
   
-
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
+  }
+  
+  
+  .filter-btn {
+    background: #ff7b54;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 5px;
+    cursor: pointer;
   }
   .search-bar {
     display: flex;
@@ -68,59 +80,64 @@ body {
   }
   
   .add-btn {
-      background-color: #7BC0F4;
-      color: black;
-      border: none;
-      padding: 8px 13px;
-      font-size: 14px;
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      
+    background-color: #7BC0F4;
+    color: black;
+    border: none;
+    padding: 8px 13px;
+    font-size: 14px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
   }
+  
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
   }
-  table th, table td {
+  
+  table th,
+  table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
   }
+  
   table th {
     background: #7BC0F4;
     color: black;
   }
+  
   .actions i {
-    margin: 0 3px;
+    margin: 0 5px;
     cursor: pointer;
-    justify-content: center
   }
-  .edit { color: black; }
-  .view { color: #7BC0F4; }
-  .delete { color: red; }
-  .refresh-btn {
-    background: #7BC0F4;
+  
+  .edit {
     color: black;
-    border: none;
-    padding: 12px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
   }
+  
+  .view {
+    color: #7BC0F4;
+  }
+  
+  .delete {
+    color: red;
+  }
+  
+  
+  
   .icon-group {
     display: flex;
     gap: 8px;
-    justify-content: flex-end; /* Align icons to the right */
-    align-items: center; /* Align icons vertically */
-    width: 100%; /* Ensure it takes full width of the container */
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
     margin-top: -30px;
     position: relative;
     top: -40px;
   }
+  
   .icon-circle {
     width: 35px;
     height: 35px;
@@ -132,18 +149,9 @@ body {
     border-radius: 50%;
     cursor: pointer;
   }
-  .filter-btn {
-    background: #ff7b54;
-    color: white;
-    border: none;
-    padding: 8px 10px;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  
+  
+  
   .pagination {
     display: flex;
     justify-content: space-between;
@@ -152,25 +160,11 @@ body {
     border-radius: 5px;
     margin-top: 10px;
   }
-  .profile-img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.profile-img:hover {
-    transform: scale(1.1); 
-}
-
   
-  /* Mobile Responsive Styles */
   @media (max-width: 768px) {
     .container {
-      width: 10%;
-      max-width: none; /* Remove max-width for smaller screens */
+      width: 100%;
+      max-width: none;
       margin-left: 0;
       padding: 10px;
       height: auto;
@@ -200,7 +194,6 @@ body {
       width: 100%;
       left: 0;
     }
-    
   
     .icon-group {
       justify-content: center;
@@ -216,26 +209,15 @@ body {
     }
   
     table th, table td {
-      padding:5px;
+      padding: 5px;
     }
   
     .actions i {
       margin: 0 10px;
     }
-    .profile-link {
-        text-decoration: none;
-        color: inherit;
-        cursor: pointer;
-    }
-    
-    .profile-icon i {
-        font-size: 22px;
-        color: #333;
-        transition: color 0.3s ease-in-out;
-    }
-    
-    .profile-icon i:hover {
-        color: #007bff;
-    }
-    
-  }  
+  }
+  
+  
+  .hero{
+    margin-left: 400px;
+  }

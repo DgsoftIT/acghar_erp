@@ -19,12 +19,12 @@
     <table>
         <thead>
             <tr>
-               
                 <th><input type="checkbox"></th>
-                <th>Name</th>
-                <th>Roles</th>
-                <th>Phone</th>
-                <th>Blood Group</th>
+                <th>S.No</th>
+                <th>Vendor Name</th>
+                <th>Date</th>
+                <th>Product No</th>
+                <th>Product Name</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -32,26 +32,22 @@
         <tbody>
             <tr *ngFor="let user of users; let i = index">
                 <td><input type="checkbox"></td>
+                <td>{{ i + 1 }}</td> 
                 <td>{{ user.name }}</td>
-                <td>{{ user.role }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.bloodGroup }}</td>
+                <td>{{ user.date }}</td> 
+                <td>{{ user.productNo }}</td> 
+                <td>{{ user.productName }}</td> 
                 <td>{{ user.status }}</td>
                 <td class="actions">
                     <i class="fa-solid fa-pen edit" (click)="editUser(user)"></i>
                     <i class="fa-solid fa-eye view" (click)="viewUser(user)"></i>
                     <i class="fa-solid fa-trash delete" (click)="deleteUser(user)"></i>
                 </td>
-                
-    
-    
             </tr>
         </tbody>
     </table>
-   <div class="pagination">
-    <span (click)="previousPage()">Previous</span>
-    <span (click)="nextPage()">Next &raquo;</span>
-</div>
-
-
+    <div class="pagination">
+        <span (click)="previousPage()">Previous</span>
+        <span (click)="nextPage()">Next &raquo;</span>
+    </div>
 </div>

@@ -10,16 +10,18 @@ body {
 }
 
 .table-container {
-  width: 100%;
-  max-width: 1200px;
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: 300px; /* Moves to the right */
-  margin-top: 150px;  /* Moves slightly down */
-  min-height: 500px; /* Adjust this value to make it taller */
+  width: 700%;
+  height: 700px;
+  max-width: 1200px;
+  position: absolute;
+  top: 100px; /* Moves it further down */
+  right: 120px; /* Moves it further left */
 }
+
 
 .header {
   display: flex;
@@ -27,48 +29,70 @@ body {
   align-items: center;
   margin-bottom: 5px;
 }
-.search-bar1 {
+
+.filter-btn {
+  background: #ff7b54;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-bar {
   display: flex;
   align-items: center;
-  background: #eee;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 200px;
-  margin-left: auto;
-  position: relative;
-  left: -20px;
+  background: #d3d3d3;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 250px;
+  margin-left: 700px;
 }
 
-.search-bar1 input {
-  border: none;
-  outline: none;
+.search-bar input {
   background: transparent;
-  padding: 6px;
-  flex: 1; /* Allow it to grow but not beyond max-width */
-  max-width: 170px;
+  border: none;
+  text-align: center;
+  outline: none;
+  padding: 0.5px;
+  width: 100%;
 }
 
 .search-btn {
-  background: #ff7b54;
+  background-color: #FE9972;
   border: none;
-  padding: 8px;
-  border-radius: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  position: relative;
-  left: -10px;
 }
+
 .search-btn i {
-  color: white;
+  font-size: 24px;
+  margin: 2px;
+ 
 }
+
+
 .add-btn {
-  background: #7BC0F4;
+  background-color: #7BC0F4;
   color: black;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 8px 13px;
+  font-size: 14px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;

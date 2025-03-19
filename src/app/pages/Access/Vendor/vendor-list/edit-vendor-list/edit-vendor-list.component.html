@@ -1,0 +1,38 @@
+<div class="container">
+    <p><u>Edit Vendor List</u></p>
+
+    <form>
+        <div class="form-group">
+            <label>Vendor Name</label>
+            <input type="text" name="vendorName" placeholder="Enter vendor name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Product Number</label>
+            <input type="text" name="productNumber" placeholder="Enter product number" required>
+        </div>
+
+        <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" name="productName" placeholder="Enter product name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status" required>
+                <option value="">Select Status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
+
+        <button type="submit" class="save-btn">
+            <i class="bi bi-save2"></i> Save
+        </button>
+    </form>
+</div>

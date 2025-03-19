@@ -12,37 +12,57 @@ import { RouterModule } from '@angular/router';
 })
 export class ViewUsersComponent {
   users = [
-    { name: 'Kalpana Bhatt', role: 'Admin', phone: '9876543210', bloodGroup: 'O+', status: 'Active' },
+    { id: 1,name: 'Kalpana Bhatt', role: 'Admin', phone: '9876543210', bloodGroup: 'O+', status: 'Active' },
+    {id: 1, name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    {id: 1, name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { id: 1,name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
+    { name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' },
     { name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive' }
   ];
 
   constructor(private router: Router) {}
-
   goToAddUser() {
-    this.router.navigate(['/add-user']);
+    this.router.navigate(['/add-user']); 
   }
-
-  editUser(user: any) {
-    console.log('Edit user:', user);
+  editUser(user: any) { 
+    this.router.navigate(['/edit-user', user.id]); 
   }
 
   viewUser(user: any) {
-    console.log('View user:', user);
+    this.router.navigate(['/view-user', user.id]); 
   }
 
   deleteUser(user: any) {
-    console.log('Delete user:', user);
+    console.log('Deleting user:', user);
+    
+  }
+  currentPage: number = 1;
+  pageSize: number = 2; 
+
+
+  nextPage() {
+    if (this.currentPage * this.pageSize < this.users.length) {
+      this.currentPage++;
+    }
   }
 
   previousPage() {
-    console.log('Go to previous page');
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 
-  nextPage() {
-    console.log('Go to next page');
+  get paginatedUsers() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    return this.users.slice(startIndex, startIndex + this.pageSize);
   }
-  //fetch user from backend
   
-  }
 
-
+}

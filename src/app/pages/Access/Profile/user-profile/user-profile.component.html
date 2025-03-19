@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>User Profile</h2>
+  
+    <div *ngIf="user; else noUser">
+      <div class="profile-header">
+        <img *ngIf="user.image" [src]="user.image" alt="Profile Image" class="profile-img"/>
+        <img *ngIf="!user.image" src="assets/login/admin.png" alt="Default Profile Image" class="profile-img"/>
+        <h3>{{ user.name }}</h3>
+        <p>{{ user.roles }} - {{ user.status }}</p>
+        <p>Email: {{ user.email }}</p>
+      </div>
+  
+      <div class="actions">
+        <!-- You can add buttons or links here for editing, deleting, etc. -->
+        <button (click)="editUserProfile()">Edit Profile</button>
+      </div>
+    </div>
+  
+    <ng-template #noUser>
+      <p>User not found. Redirecting...</p>
+    </ng-template>
+  </div>
