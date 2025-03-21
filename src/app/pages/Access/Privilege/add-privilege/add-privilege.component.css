@@ -1,69 +1,65 @@
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1000px;
-    margin: 40px auto;
-    margin-top: 80px; 
-   
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    border-radius: 12px;
-    padding: 12px;
-  }
-  
-  .form-group label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .form-group input {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    font-size: 14px;
-    transition: border 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group input:focus {
-    border-color: #7BC0F4;
-    outline: none;
-  }
-  
-  /* Button Styling */
-  .save-btn {
-    background: #ff7b54;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
-    transition: background 0.3s ease;
-  }
-  
-  .save-btn:hover {
-    background: #e66a46;
-  }
-  
-  .save-btn i {
-    font-size: 18px;
-  }
-  
-  
-  
-  
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  margin-top: 80px; 
+ 
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  transition: border 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus {
+  border-color: #7BC0F4;
+  outline: none;
+}
+
+/* Button Styling */
+.save-btn {
+  background: #ff7b54;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.save-btn:hover {
+  background: #e66a46;
+}
+
+.save-btn i {
+  font-size: 18px;
+}

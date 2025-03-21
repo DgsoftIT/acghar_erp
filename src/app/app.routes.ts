@@ -1,4 +1,3 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
@@ -22,24 +21,25 @@ import { AddUserProfileComponent } from './pages/Access/Profile/add-user-profile
 import { UserProfileComponent } from './pages/Access/Profile/user-profile/user-profile.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },  
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },  
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'sidenav', component: SidenavComponent },
   { path: 'view-users', component: ViewUsersComponent },
-  {path: 'edit-users/:id', component: EditUsersComponent},
+  { path: 'edit-users/:id', component: EditUsersComponent },
   { path: 'view-user-roles', component: ViewUserRolesComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'view-privilege', component: ViewPrivilegeComponent },
-  {path: 'edit-privilege/:id', component: EditPrivilegeComponent},
-  {path: 'add-privilege', component: AddPrivilegeComponent},
+  { path: 'edit-privilege/:id', component: EditPrivilegeComponent },
+  { path: 'add-privilege', component: AddPrivilegeComponent },
   { path: 'add-user-roles', component: AddUserRolesComponent },
-  {path: 'edit-user-profile/:id', component: EditUserProfileComponent},
-  {path: 'user-profile/:id', component: UserProfileComponent},
-  {path: 'view-user-profile', component:ViewUserProfileComponent},
-  {path: 'add-user-profile', component: AddUserProfileComponent},
-  {path: 'edit-user-roles', component: EditUserRolesComponent},
-  {path: 'vendor-list', component: VendorListComponent},
-  {path: 'edit-vendor-list/:id', component:EditVendorListComponent}
+  { path: 'edit-user-profile/:id', component: EditUserProfileComponent },
+  { path: 'user-profile/:id', component: UserProfileComponent },
+  { path: 'view-user-profile', component: ViewUserProfileComponent },
+  { path: 'add-user-profile', component: AddUserProfileComponent },
+  { path: 'edit-user-roles', component: EditUserRolesComponent },
+  { path: 'vendor-list', component: VendorListComponent },
+  { path: 'edit-vendor-list/:id', component: EditVendorListComponent },
 ];

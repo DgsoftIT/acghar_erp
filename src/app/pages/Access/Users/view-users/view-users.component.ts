@@ -31,8 +31,8 @@ export class ViewUsersComponent {
   goToAddUser() {
     this.router.navigate(['/add-user']); 
   }
-  editUser(user: any) { 
-    this.router.navigate(['/edit-user', user.id]); 
+  editUser(user: any) {
+    this.router.navigate(['/edit-users', user.id]);
   }
 
   viewUser(user: any) {

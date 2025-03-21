@@ -13,12 +13,14 @@
 <div class="table-container">
     <div class="header">
         <button class="filter-btn">
-          <i class="material-icons"></i> Filter
-        </button>
-        <div class="search-bar">
+            <i class="material-icons">filter_list</i> Filter
+          </button>
+          <div class="search-bar">
             <input type="text" placeholder="Search by name/roles">
-            <button class="search-btn"><i class="fas fa-search"></i></button>
-        </div>
+            <button class="search-btn">
+              <i class="material-icons custom-icon">search</i> 
+            </button>
+          </div>
         <button class="add-btn" (click)="goToAddPrivilege()">
             <i class="material-icons custom-icon">add</i>
             Add New
@@ -28,6 +30,7 @@
     <table>
         <thead>
             <tr>
+                <th>Name</th>
                 <th>S.N</th>
                 <th>ROLES</th>
                 <th>PRIVILEGE</th>
@@ -37,6 +40,7 @@
         <tbody>
             <tr>
                 <td>1</td>
+                <td>Srijana Ghimire</td>
                 <td>Super Admin</td>
                 <td>
                     <select>
@@ -58,6 +62,7 @@
             </tr>
             <tr>
                 <td>2</td>
+                <td>Sunita Dulal</td>
                 <td>Admin</td>
                 <td>
                     <select>
@@ -79,6 +84,7 @@
             </tr>
             <tr>
                 <td>3</td>
+                <td>Nabin Chaudhari</td>
                 <td>Accountant</td>
                 <td>
                     <select>

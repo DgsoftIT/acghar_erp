@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';  
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-add-privilege',
+  selector: 'add-users',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-privilege.component.html',
-  styleUrls: ['./add-privilege.component.css'] 
+  styleUrls: ['./add-privilege.component.css']
 })
 export class AddPrivilegeComponent {
   addUserForm = new FormGroup({
@@ -13,6 +16,7 @@ export class AddPrivilegeComponent {
     roles: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
     bloodGroup: new FormControl('', [Validators.required]),
+    privilege: new FormControl('', [Validators.required]), // Added this line
   });
 
   get name() { return this.addUserForm.get('name'); }
@@ -20,6 +24,7 @@ export class AddPrivilegeComponent {
   get roles() { return this.addUserForm.get('roles'); }
   get phoneNumber() { return this.addUserForm.get('phoneNumber'); }
   get bloodGroup() { return this.addUserForm.get('bloodGroup'); }
+  get privilege() { return this.addUserForm.get('privilege')!; } // Non-null assertion added
 
   onSubmit() {
     if (this.addUserForm.valid) {

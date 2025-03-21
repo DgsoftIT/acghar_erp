@@ -1,1 +1,43 @@
-<p>edit-users works!</p>
+<form #userForm="ngForm">
+    <div class="container">
+      <h2>Edit User</h2>
+      <form class="edit-user-form">
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="userName">Name</label>
+          <input type="text" id="userName" [(ngModel)]="user.name" name="userName" placeholder="Enter user's name" required />
+        </div>
+  
+        <!-- Role Field -->
+        <div class="form-group">
+          <label for="userRole">Role</label>
+          <input type="text" id="userRole" [(ngModel)]="user.role" name="userRole" placeholder="Enter user role" required />
+        </div>
+  
+        <!-- Phone Field -->
+        <div class="form-group">
+          <label for="userPhone">Phone</label>
+          <input type="tel" id="userPhone" [(ngModel)]="user.phone" name="userPhone" placeholder="Enter user's phone number" required />
+        </div>
+  
+        <!-- Blood Group Field -->
+        <div class="form-group">
+          <label for="userBloodGroup">Blood Group</label>
+          <input type="text" id="userBloodGroup" [(ngModel)]="user.bloodGroup" name="userBloodGroup" placeholder="Enter user's blood group" required />
+        </div>
+  
+        <!-- Status Field -->
+        <div class="form-group">
+          <label for="userStatus">Status</label>
+          <input type="text" id="userStatus" [(ngModel)]="user.status" name="userStatus" placeholder="Enter user's status" required />
+        </div>
+  
+        <!-- Buttons -->
+        <div class="buttons">
+            <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+          <button type="submit" class="save-btn" (click)="saveUser()">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </form>
+  

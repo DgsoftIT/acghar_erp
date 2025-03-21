@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // ✅ Import Router
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-edit-users',
+  selector: 'app-edit-user',
   templateUrl: './edit-users.component.html',
+  imports: [FormsModule, RouterModule],
   styleUrls: ['./edit-users.component.css']
 })
-export class EditUsersComponent implements OnInit {
-  viewId: string | null = null; 
+export class EditUsersComponent {
+  user = {
+    name: '',
+    role: '',
+    phone: '',
+    bloodGroup: '',
+    status: ''
+  };
 
-  constructor(private route: ActivatedRoute, private router: Router) {} // ✅ Inject Router
-
-  ngOnInit() {
-    this.viewId = this.route.snapshot.paramMap.get('id');
-    console.log('Editing view with ID:', this.viewId);
+  saveUser() {
+    console.log('User saved:', this.user);
   }
 
-  editUser(user: any) {
-    console.log('Editing user:', user);
-    this.router.navigate(['/edit-user', user.id]); // ✅ Now `router` is accessible
+  cancelEdit() {
+    console.log('Edit canceled');
   }
 }

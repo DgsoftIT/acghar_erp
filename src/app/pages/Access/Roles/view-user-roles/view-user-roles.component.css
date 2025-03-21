@@ -17,8 +17,8 @@ body {
     height: 700px;
     max-width: 1200px;
     position: absolute;
-    top: 100px; /* Moves it further down */
-    right: 120px; /* Moves it further left */
+    top: 100px; 
+    right: 120px;
   }
   
 
@@ -31,42 +31,38 @@ body {
   .search-bar {
     display: flex;
     align-items: center;
-    background: #d3d3d3;
-    padding: 6px 10px;
-    font-size: 14px;
-    border-radius: 28px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 10px;
     width: 100%;
-    max-width: 250px;
-    margin-left: 700px;
+    max-width: 300px;
+    margin-left: -650px;
   }
   
+  
+  
   .search-bar input {
-    background: transparent;
     border: none;
-    text-align: center;
     outline: none;
-    padding: 0.5px;
+    padding: 8px;
     width: 100%;
+    font-size: 14px;
+    
   }
   
   .search-btn {
-    background-color: #FE9972;
+    background-color: transparent;
     border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
   }
   
   .search-btn i {
     font-size: 24px;
     margin: 2px;
+    color: black;
    
   }
-  
   .add-btn {
       background-color: #7BC0F4;
       color: black;

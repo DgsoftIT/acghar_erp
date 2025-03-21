@@ -19,14 +19,13 @@ export class ViewUserRolesComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Initialization logic if needed
+ 
   }
 
-  // Define the methods for actions
-  editUser(id: number): void {
-    console.log('Editing user with id:', id);
+  editUser(user: any) {
+    this.router.navigate(['/edit-user-roles', user.id]);
   }
-
+  
   viewUser(id: number): void {
     console.log('Viewing user with id:', id);
   }
@@ -39,10 +38,9 @@ export class ViewUserRolesComponent implements OnInit {
     console.log('Viewing profile of user with id:', id);
   }
 
-  // Navigate to the user's profile page when the profile image is clicked
   viewUserProfile(id: number): void {
     console.log('Navigating to profile of user with id:', id);
-    this.router.navigate(['/user-profile', id]); // Navigate to the user profile page
+    this.router.navigate(['/user-profile', id]); 
   }
 
   goToAddUserRoles(): void {
