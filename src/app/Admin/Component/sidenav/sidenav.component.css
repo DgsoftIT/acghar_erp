@@ -173,7 +173,7 @@ body {
     margin-right: 10px;
   }
   
-  .sub-menu1 {
+  .sub-menu1{
     margin-left: 15px; 
     list-style: none;
     padding: 0;
@@ -185,12 +185,11 @@ body {
     overflow: hidden;
     text-decoration: none;
   }
-  .sub-menu a {
+  
+  .sub-menu1 a {
     text-decoration: none; 
     color: inherit; 
   }
-  
-
   
   .sub-menu1.show {
     display: block; 
@@ -206,7 +205,6 @@ body {
   .sub-menu1 li:hover {
     background-color: #c1c1c1;
   }
-
   .sub-menu2 {
     margin-left: 15px; 
     list-style: none;
@@ -220,9 +218,13 @@ body {
     text-decoration: none;
   }
   
+  .sub-menu2 a {
+    text-decoration: none; 
+    color: inherit; 
+  }
+  
   .sub-menu2.show {
     display: block; 
-    color: inherit; 
   }
   
   .sub-menu2 li {
@@ -230,7 +232,6 @@ body {
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.2s;
-    
   }
   
   .sub-menu2 li:hover {

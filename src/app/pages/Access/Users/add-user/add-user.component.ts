@@ -1,36 +1,41 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'add-users',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  selector: 'app-edit-user',
+  standalone: true, // Required for Standalone Components
   templateUrl: './add-user.component.html',
+  imports: [CommonModule, FormsModule], // Add CommonModule and FormsModule
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent {
-  addUserForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    roles: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
-    bloodGroup: new FormControl('', [Validators.required]),
-  });
+  user = {
+    id: 0,
+    name: '',
+    role: '',
+    privilege: 'User',   // Default value for privilege
+    phone: '',
+    bloodGroup: '',
+    panNumber: '',
+    status: '',
+    image: ''  
+  };
 
-  get name() { return this.addUserForm.get('name'); }
-  get email() { return this.addUserForm.get('email'); }
-  get roles() { return this.addUserForm.get('roles'); }
-  get phoneNumber() { return this.addUserForm.get('phoneNumber'); }
-  get bloodGroup() { return this.addUserForm.get('bloodGroup'); }
+  constructor(private router: Router) {}
 
-  onSubmit() {
-    if (this.addUserForm.valid) {
-      console.log('User Added:', this.addUserForm.value);
-      alert('User Added Successfully!');
-    } else {
-      alert('Please fill all fields correctly.');
-    }
+  saveUser() {
+    console.log('User saved:', this.user);
+    // You can call an API to save the user or navigate back to users list
+  }
+
+  cancelEdit() {
+    console.log('Edit canceled');
+    this.router.navigate(['/users']);
+  }
+
+  userProfile(userId: number) {
+    console.log('Viewing profile of user ID:', userId);
   }
 }
-

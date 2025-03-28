@@ -1,0 +1,50 @@
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<div class="container">
+    <div class="header">
+        <h2>Add New Vendor</h2>
+    </div>
+
+    <form (ngSubmit)="addVendor()">
+        <!-- Vendor Name -->
+        <div class="form-group">
+            <label for="vendorName">Vendor Name</label>
+            <input type="text" id="vendorName" [(ngModel)]="vendor.name" name="vendorName" placeholder="Enter vendor name" required>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label for="vendorDate">Date</label>
+            <input type="date" id="vendorDate" [(ngModel)]="vendor.date" name="vendorDate" required>
+        </div>
+
+        <!-- Product Number -->
+        <div class="form-group">
+            <label for="vendorProductNo">Product Number</label>
+            <input type="text" id="vendorProductNo" [(ngModel)]="vendor.productNo" name="vendorProductNo" placeholder="Enter product number" required>
+        </div>
+
+        <!-- Product Name -->
+        <div class="form-group">
+            <label for="vendorProductName">Product Name</label>
+            <input type="text" id="vendorProductName" [(ngModel)]="vendor.productName" name="vendorProductName" placeholder="Enter product name" required>
+        </div>
+
+        <!-- Vendor Status -->
+        <div class="form-group">
+            <label for="vendorStatus">Status</label>
+            <select id="vendorStatus" [(ngModel)]="vendor.status" name="vendorStatus" required>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button type="button" class="cancel-btn" (click)="cancelAdd()">Cancel</button>
+            <button type="submit" class="save-btn">Save Vendor</button>
+        </div>
+    </form>
+</div>

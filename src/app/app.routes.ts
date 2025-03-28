@@ -19,6 +19,7 @@ import { EditUsersComponent } from './pages/Access/Users/edit-users/edit-users.c
 import { ViewUserProfileComponent } from './pages/Access/Profile/view-user-profile/view-user-profile.component';
 import { AddUserProfileComponent } from './pages/Access/Profile/add-user-profile/add-user-profile.component';
 import { UserProfileComponent } from './pages/Access/Profile/user-profile/user-profile.component';
+import { AddVendorComponent } from './pages/Access/Vendor/add-vendor/add-vendor.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -39,7 +40,8 @@ export const routes: Routes = [
   { path: 'user-profile/:id', component: UserProfileComponent },
   { path: 'view-user-profile', component: ViewUserProfileComponent },
   { path: 'add-user-profile', component: AddUserProfileComponent },
-  { path: 'edit-user-roles', component: EditUserRolesComponent },
+  { path: 'edit-user-roles/:id', component: EditUserRolesComponent },
   { path: 'vendor-list', component: VendorListComponent },
   { path: 'edit-vendor-list/:id', component: EditVendorListComponent },
+  {path: 'add-vendor', component: AddVendorComponent}
 ];

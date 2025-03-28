@@ -29,8 +29,8 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Login Successful:', this.loginForm.value);
-      this.router.navigate(['/sidenav']);//Redirectto dashboard
-      // authentication part 
+      this.router.navigate(['/sidenav']);
+
     } else {
       console.log('Form is invalid');
     }

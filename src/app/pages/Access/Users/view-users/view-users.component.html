@@ -12,48 +12,60 @@
             <button class="search-btn">
               <i class="material-icons custom-icon">search</i> 
             </button>
-          </div>
+        </div>
         <button class="add-btn" (click)="goToAddUser()">
             <i class="material-icons custom-icon">add</i>
             Add New
         </button>
     </div>
+    
     <table>
         <thead>
             <tr>
-               
                 <th><input type="checkbox"></th>
                 <th>Name</th>
+                <th>Id</th>
                 <th>Roles</th>
+                <th>Privilege</th>
                 <th>Phone</th>
                 <th>Blood Group</th>
+                <th>Pan No</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users; let i = index">
+            <tr *ngFor="let user of paginatedUsers">
                 <td><input type="checkbox"></td>
                 <td>{{ user.name }}</td>
+                <td>{{ user.id }}</td>
                 <td>{{ user.role }}</td>
+                
+                <!-- Privilege dropdown -->
+                <td>
+                    <select [(ngModel)]="user.privilege">
+                        <option value="Full Access">Full Access</option>
+                        <option value="Limited Access">Limited Access</option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                    </select>
+                </td>
+                
                 <td>{{ user.phone }}</td>
                 <td>{{ user.bloodGroup }}</td>
+                <td>{{ user.panNum }}</td>
                 <td>{{ user.status }}</td>
                 <td class="actions">
                     <i class="fa-solid fa-pen edit" (click)="editUser(user)"></i>
                     <i class="fa-solid fa-eye view" (click)="viewUser(user)"></i>
                     <i class="fa-solid fa-trash delete" (click)="deleteUser(user)"></i>
                 </td>
-                
-    
-    
             </tr>
         </tbody>
     </table>
-   <div class="pagination">
-    <span (click)="previousPage()">Previous</span>
-    <span (click)="nextPage()">Next &raquo;</span>
-</div>
 
-
+    <div class="pagination">
+        <span (click)="previousPage()">Previous</span>
+        <span (click)="nextPage()">Next &raquo;</span>
+    </div>
 </div>

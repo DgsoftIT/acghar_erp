@@ -1,58 +1,11 @@
 <div class="container">
-    <p><u>Add User</u></p>
-  
-    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
-      
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" formControlName="name" placeholder="Enter name">
-        <div *ngIf="name?.invalid && name?.touched" class="error">Name is required.</div>
+    <h2>View All Privileges</h2>
+    <div class="grid">
+      <div class="card" *ngFor="let privilege of privileges">
+        <span class="material-icons">{{ privilege.icon }}</span>
+        <h3>{{ privilege.name }}</h3>
+        <p>{{ privilege.description }}</p>
       </div>
-  
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" formControlName="email" placeholder="Enter email">
-        <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid email.</div>
-      </div>
-  
-      <div class="form-group">
-        <label>Roles</label>
-        <input type="text" formControlName="roles" placeholder="Enter roles">
-        <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
-      </div>
-  
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="text" formControlName="phoneNumber" placeholder="Enter phone number">
-        <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched" class="error">Enter a valid 10-digit phone number.</div>
-      </div>
-  
-      <div class="form-group">
-        <label>Blood Group</label>
-        <input type="text" formControlName="bloodGroup" placeholder="Enter blood group">
-        <div *ngIf="bloodGroup?.invalid && bloodGroup?.touched" class="error">Blood group is required.</div>
-      </div>
-      <div class="form-group">
-        <label for="privilege">Privilege</label>
-        <select id="privilege" formControlName="privilege" class="form-control">
-          <option value="" disabled selected>Select Privilege</option>
-          <option value="admin">Admin</option>
-          <option value="editor">Dashboard</option>
-          <option value="viewer">Access</option>
-          <option value="viewer">Employee</option>
-        </select>
-        <div *ngIf="privilege && privilege.invalid && privilege.touched" class="error">
-          Privilege is required.
-        </div>
-      </div>
-      
-      
-      
-  
-      <button class="save-btn" [disabled]="addUserForm.invalid">
-        <i class="bi bi-save2"></i> Save
-      </button>
-  
-    </form>
+    </div>
   </div>
   

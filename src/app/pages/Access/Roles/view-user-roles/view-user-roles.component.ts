@@ -1,41 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-view-user-roles',
   standalone: true,
   templateUrl: './view-user-roles.component.html',
   styleUrls: ['./view-user-roles.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule, FormsModule]
 })
 export class ViewUserRolesComponent implements OnInit {
   users = [
-    { id: 1, name: 'Sunita Dulal', roles: 'Admin', panNumber: '1234567890', status: 'Active', image: 'assets/login/admin.png' },
-    { id: 2, name: 'Sapana Poudel', roles: 'Editor', panNumber: '9876543210', status: 'Inactive', image: '' },
-    { id: 3, name: 'Deepu', roles: 'User', panNumber: '5555555555', status: 'Active', image: null }
+    { id: 1, name: 'Sunita Dulal', roles: 'Admin', privilege: 'Full', status: 'Active', image: 'assets/login/admin.png' },
+    { id: 2, name: 'Sapana Poudel', roles: 'Editor', privilege: 'Limited', status: 'Inactive', image: '' },
+    { id: 3, name: 'Deepu', roles: 'User', privilege: 'Restricted', status: 'Active', image: null }
   ];
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
- 
-  }
+  ngOnInit(): void {}
 
-  editUser(user: any) {
-    this.router.navigate(['/edit-user-roles', user.id]);
+  editUser(id: number): void {
+    console.log('Navigating to edit page with id:', id);
+    this.router.navigate(['/edit-user-roles', id]);
   }
   
   viewUser(id: number): void {
     console.log('Viewing user with id:', id);
+    this.router.navigate(['/view-user-roles', id]);
   }
 
-  deleteUser(id: number): void {
-    console.log('Deleting user with id:', id);
-  }
-
-  userProfile(id: number): void {
-    console.log('Viewing profile of user with id:', id);
+  deleteUser(user: any) {
+    console.log('Delete user:', user);
+    this.users = this.users.filter(u => u.id !== user.id);
   }
 
   viewUserProfile(id: number): void {
@@ -44,6 +42,12 @@ export class ViewUserRolesComponent implements OnInit {
   }
 
   goToAddUserRoles(): void {
+    console.log('Navigating to add user roles');
     this.router.navigate(['/add-user-roles']);
+  }
+
+  // Handle privilege change
+  onPrivilegeChange(user: any): void {
+    console.log('Privilege changed for user with id:', user.id, 'New privilege:', user.privilege);
   }
 }

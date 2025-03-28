@@ -1,39 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-edit-user-roles',
   templateUrl: './edit-user-roles.component.html',
+  imports: [RouterModule,CommonModule, FormsModule],
   styleUrls: ['./edit-user-roles.component.css']
 })
 export class EditUserRolesComponent {
-  addUserForm: FormGroup;
+  user = {
+    name: '',
+    email: '',
+    roles: ''
+  };
 
-  constructor() {
-    // Initialize the form with validators
-    this.addUserForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      roles: new FormControl('', [Validators.required]),
-      phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
-      bloodGroup: new FormControl('', [Validators.required]),
-    });
-  }
+  privileges = ['Admin', 'User', 'Manager'];
 
-  // Getters for the form controls to simplify access in the template
-  get name() { return this.addUserForm.get('name'); }
-  get email() { return this.addUserForm.get('email'); }
-  get roles() { return this.addUserForm.get('roles'); }
-  get phoneNumber() { return this.addUserForm.get('phoneNumber'); }
-  get bloodGroup() { return this.addUserForm.get('bloodGroup'); }
-
-  // Submit handler
   onSubmit() {
-    if (this.addUserForm.valid) {
-      console.log('User Added:', this.addUserForm.value);
-      alert('User Added Successfully!');
+    if (this.user.name && this.user.email && this.user.roles) {
+      console.log('User data:', this.user);
+      // Add your form submission logic here
     } else {
-      alert('Please fill all fields correctly.');
+      console.log('Please fill in all fields');
     }
+    
   }
+  
 }

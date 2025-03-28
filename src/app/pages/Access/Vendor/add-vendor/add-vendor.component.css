@@ -1,0 +1,77 @@
+/* Add Vendor Form Styles */
+.container {
+    padding: 20px;
+    max-width: 600px; /* Adjust the width */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fff;
+  }
+  
+  textarea {
+    height: 120px; /* Adjust textarea height */
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .save-btn, .cancel-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 50px; /* Rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 48%; /* Make buttons equal in width */
+    text-align: center;
+  }
+  
+  .save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  .save-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .cancel-btn {
+    background-color: transparent;
+    color: #f44336;
+    border: 2px solid #f44336;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Optional: For icon in the buttons */
+  i.material-icons {
+    margin-right: 5px;
+  }
+  

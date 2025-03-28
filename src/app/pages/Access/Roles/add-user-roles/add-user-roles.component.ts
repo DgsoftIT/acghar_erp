@@ -15,12 +15,14 @@ export class AddUserRolesComponent {
     email: new FormControl('', [Validators.required, Validators.email]),
     roles: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
+    privilege: new FormControl('User', [Validators.required])  // Added privilege control
   });
 
   get name() { return this.addUserForm.get('name'); }
   get email() { return this.addUserForm.get('email'); }
   get roles() { return this.addUserForm.get('roles'); }
   get phoneNumber() { return this.addUserForm.get('phoneNumber'); }
+  get privilege() { return this.addUserForm.get('privilege'); }
 
   onSubmit() {
     if (this.addUserForm.valid) {

@@ -1,41 +1,67 @@
-<div class="container">
-  <p><u>Add User</u></p>
+<form #userForm="ngForm" (ngSubmit)="saveUser()">
+  <div class="container">
+    <h2>Add User</h2>
 
-  <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <div class="image-container">
+      <img *ngIf="user.image" [src]="user.image" alt="Profile Image" class="profile-img"
+           (click)="userProfile(user.id)" />
+      <img *ngIf="!user.image" src="assets/login/admin.png" alt="Default Profile Image" class="profile-img"
+           (click)="userProfile(user.id)" />
+    </div>
+
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="userName">Name</label>
+      <input type="text" id="userName" [(ngModel)]="user.name" name="userName" placeholder="Enter user's name" required />
+    </div>
+
+    <!-- Id Field -->
+    <div class="form-group">
+      <label for="userId">Id</label>
+      <input type="text" id="userId" [(ngModel)]="user.id" name="userId" placeholder="Enter user's ID" required readonly />
+    </div>
+
+    <!-- Roles Field -->
+    <div class="form-group">
+      <label for="userRole">Role</label>
+      <input type="text" id="userRole" [(ngModel)]="user.role" name="userRole" placeholder="Enter user role" required />
+    </div>
+
+    <!-- Privilege Field (Dropdown) -->
+    <div class="form-group">
+      <label for="userPrivilege">Privilege</label>
+      <select id="userPrivilege" [(ngModel)]="user.privilege" name="userPrivilege" required>
+        <option value="Full Access">Full Access</option>
+        <option value="Limited Access">Limited Access</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+
+    <!-- Phone Field -->
+    <div class="form-group">
+      <label for="userPhone">Phone</label>
+      <input type="tel" id="userPhone" [(ngModel)]="user.phone" name="userPhone" placeholder="Enter user's phone number" required />
+    </div>
+
+    <!-- Blood Group Field -->
+    <div class="form-group">
+      <label for="userBloodGroup">Blood Group</label>
+      <input type="text" id="userBloodGroup" [(ngModel)]="user.bloodGroup" name="userBloodGroup" placeholder="Enter user's blood group" required />
+    </div>
+
+    <!-- PAN Number -->
+    <div class="form-group">
+      <label for="userPanNumber">PAN Number</label>
+      <input type="text" id="userPanNumber" [(ngModel)]="user.panNumber" name="userPanNumber" placeholder="Enter user's PAN number" required />
+    </div>
+
+    <!-- Status Field -->
     
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" formControlName="name" placeholder="Enter name">
-      <div *ngIf="name?.invalid && name?.touched" class="error">Name is required.</div>
+    <!-- Buttons -->
+    <div class="buttons">
+      <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+      <button type="submit" class="save-btn">Save Changes</button>
     </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" formControlName="email" placeholder="Enter email">
-      <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid email.</div>
-    </div>
-
-    <div class="form-group">
-      <label>Roles</label>
-      <input type="text" formControlName="roles" placeholder="Enter roles">
-      <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
-    </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input type="text" formControlName="phoneNumber" placeholder="Enter phone number">
-      <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched" class="error">Enter a valid 10-digit phone number.</div>
-    </div>
-
-    <div class="form-group">
-      <label>Blood Group</label>
-      <input type="text" formControlName="bloodGroup" placeholder="Enter blood group">
-      <div *ngIf="bloodGroup?.invalid && bloodGroup?.touched" class="error">Blood group is required.</div>
-    </div>
-
-    <button class="save-btn" [disabled]="addUserForm.invalid">
-      <i class="bi bi-save2"></i> Save
-    </button>
-
-  </form>
-</div>
+  </div>
+</form>

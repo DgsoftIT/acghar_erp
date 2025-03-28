@@ -9,11 +9,12 @@
         <div class="profile-info">
             <p><strong>ID:</strong> {{ user.id }}</p>
             <p><strong>Email:</strong> {{ user.email }}</p>
-            <p><strong>Contact:</strong> {{ user.contact }}</p>
+            <p><strong>Phone:</strong> {{ user.phoneNumber }}</p>
+            <p><strong>PAN No:</strong> {{ user.panNo }}</p>
+            <p><strong>Blood Group:</strong> {{ user.bloodGroup }}</p>
+            <p><strong>Privilege:</strong> {{ user.privilege }}</p>
         </div>
-        <div class="profile-actions">
-            <button class="edit-btn" (click)="editUserProfile()">Edit Profile</button>
-        </div>
+        
     </div>
 
     <ng-template #noUser>

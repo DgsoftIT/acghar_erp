@@ -1,108 +1,48 @@
-<!DOCTYPE html>
-<!-- Google Material Icons -->
+<!-- Add in your HTML Head -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
 <div class="table-container">
     <div class="header">
         <button class="filter-btn">
             <i class="material-icons">filter_list</i> Filter
-          </button>
-          <div class="search-bar">
+        </button>
+        <div class="search-bar">
             <input type="text" placeholder="Search by name/roles">
             <button class="search-btn">
-              <i class="material-icons custom-icon">search</i> 
+                <i class="material-icons custom-icon">search</i> 
             </button>
-          </div>
+        </div>
         <button class="add-btn" (click)="goToAddPrivilege()">
-            <i class="material-icons custom-icon">add</i>
-            Add New
+            <i class="material-icons custom-icon">military_tech</i>
+           View Privilege
         </button>
     </div> 
 
     <table>
         <thead>
             <tr>
-                <th>Name</th>
                 <th>S.N</th>
-                <th>ROLES</th>
+                <th>Name</th>
+                <th>Id</th>
                 <th>PRIVILEGE</th>
                 <th>ACTION</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Srijana Ghimire</td>
-                <td>Super Admin</td>
+            <tr *ngFor="let user of users; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.id }}</td>
                 <td>
                     <select>
-                        <option>Dashboard</option>
-                        <option>Sales</option>
-                        <option>Catalogue</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
+                        <option *ngFor="let privilege of user.privileges">{{ privilege }}</option>
                     </select>
                 </td>
                 <td class="actions">
-                    <i class="fas fa-pen edit"></i>
-                    <i class="fas fa-eye view"></i>
-                    <i class="fas fa-trash delete"></i>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Sunita Dulal</td>
-                <td>Admin</td>
-                <td>
-                    <select>
-                        <option>Dashboard</option>
-                        <option>Sales</option>
-                        <option>Catalogue</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                    </select>
-                </td>
-                <td class="actions">
-                    <i class="fas fa-pen edit"></i>
-                    <i class="fas fa-eye view"></i>
-                    <i class="fas fa-trash delete"></i>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Nabin Chaudhari</td>
-                <td>Accountant</td>
-                <td>
-                    <select>
-                        <option>Dashboard</option>
-                        <option>Sales</option>
-                        <option>Catalogue</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                        <option>Dashboard</option>
-                    </select>
-                </td>
-                <td class="actions">
-                    <i class="fas fa-pen edit"></i>
-                    <i class="fas fa-eye view"></i>
-                    <i class="fas fa-trash delete"></i>
+                    <i class="fa-solid fa-pen edit" (click)="editUser(user)"></i>
+                    <i class="fa-solid fa-eye view" (click)="viewUser(user)"></i>
+                    <i class="fa-solid fa-trash delete" (click)="deleteUser(user)"></i>
                 </td>
             </tr>
         </tbody>

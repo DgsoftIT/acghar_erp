@@ -92,8 +92,8 @@ export class VendorListComponent {
 
   constructor(private router: Router) {}
 
-  goToAddUser() {
-    this.router.navigate(['/add-user']);
+  goToAddVendor() {
+    this.router.navigate(['/add-vendor']);
   }
 
   editUser(user: any) {

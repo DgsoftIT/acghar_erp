@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,11 +10,16 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent {
+  constructor(private router: Router) {} // ✅ Inject Router service
+
   user = {
-    
     id: 'U12345',
     name: 'Sunita Dulal',
     roles: 'Admin',
+    panNo: 'PAN987654321',
+    phoneNumber: '+976876567',
+    bloodGroup: 'O+',
+    privilege: 'Full Access',
     status: 'Active',
     email: 'Sunitadulal@gmail.com',
     contact: '+976876567',
@@ -21,6 +27,6 @@ export class UserProfileComponent {
   };
 
   editUserProfile() {
-    console.log('Edit Profile Clicked');
+    this.router.navigate(['/edit-user-profile', this.user.id]); 
   }
 }
