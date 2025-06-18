@@ -2,48 +2,17 @@
   <h2>Edit Privilege</h2>
 
   <form (ngSubmit)="onSubmit()" class="edit-user-form">
-    <!-- User Details Section (ID and Name) -->
+    <!-- Privilege Title Section -->
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" [(ngModel)]="user.name" name="name" disabled />
+      <label for="privilegeTitle">Privilege Title</label>
+      <input type="text" id="privilegeTitle" [(ngModel)]="user.privilegeTitle" name="privilegeTitle" required />
     </div>
 
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input type="text" id="id" [(ngModel)]="user.id" name="id" disabled />
-    </div>
+    <!-- Privilege Selection Section -->
+    
 
-    <!-- Privilege Selection Section (Dropdown to select a privilege) -->
-    <div class="form-group">
-      <label>Select Privilege</label>
-      
-      <!-- Dropdown to select privilege -->
-      <select id="privilege" [(ngModel)]="selectedPrivilege" name="privilege" class="dropdown" (change)="onPrivilegeSelect()">
-        <option value="" disabled selected>Select a privilege</option>
-        <option *ngFor="let privilege of availablePrivileges" [value]="privilege">
-          {{ privilege }}
-        </option>
-      </select>
-
-      <!-- Show checkboxes when a privilege is selected -->
-      <div *ngIf="showCheckboxes" class="checkbox-group">
-        <label *ngFor="let privilege of availablePrivileges">
-          <input type="checkbox" [value]="privilege" (change)="togglePrivilege(privilege)" 
-                 [checked]="user.privileges.includes(privilege)" />
-          {{ privilege }}
-        </label>
-      </div>
-    </div>
-
-    <!-- Assigned Privileges Section (Display the privileges assigned to the user) -->
-    <div class="form-group">
-      <label for="assign-privileges">Assign Privileges</label>
-      <div class="selected-privileges">
-        <div *ngFor="let privilege of user.privileges">
-          <span>{{ privilege }}</span>
-        </div>
-      </div>
-    </div>
+    <!-- Assigned Privileges Section -->
+    
 
     <!-- Action Buttons -->
     <div class="buttons">
@@ -54,5 +23,5 @@
         <i class="fa-solid fa-xmark"></i> Cancel
       </button>
     </div>
-  </form>
-</div>
+
+

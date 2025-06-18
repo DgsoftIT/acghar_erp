@@ -1,11 +1,25 @@
 <div class="container">
-    <h2>View All Privileges</h2>
-    <div class="grid">
-      <div class="card" *ngFor="let privilege of privileges">
-        <span class="material-icons">{{ privilege.icon }}</span>
-        <h3>{{ privilege.name }}</h3>
-        <p>{{ privilege.description }}</p>
-      </div>
+  <h2>Add Privilege</h2>
+
+  <form (ngSubmit)="onSubmit()" class="add-privilege-form">
+    <!-- Privilege Title Section -->
+    <div class="form-group">
+      <label for="privilegeTitle">Privilege Title</label>
+      <input type="text" id="privilegeTitle" [(ngModel)]="privilegeTitle" name="privilegeTitle" required />
     </div>
-  </div>
-  
+
+    <!-- Privilege Selection Section -->
+   
+     
+
+    <!-- Action Buttons -->
+    <div class="buttons">
+      <button type="submit" class="save-btn">
+        <i class="fa-solid fa-save"></i> save
+      </button>
+      <button type="button" class="cancel-btn" (click)="onCancel()">
+        <i class="fa-solid fa-xmark"></i> Cancel
+      </button>
+    </div>
+  </form>
+</div>

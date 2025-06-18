@@ -21,6 +21,16 @@ body {
   top: 100px; 
   right: 120px; 
 }
+ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+ul li {
+  display: inline-block; 
+  margin-right: 10px; 
+}
 
 
 .header {

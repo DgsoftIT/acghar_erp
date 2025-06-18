@@ -2,66 +2,95 @@
   <div class="container">
     <h2>Add User</h2>
 
+    <!-- Image Upload Section -->
     <div class="image-container">
-      <img *ngIf="user.image" [src]="user.image" alt="Profile Image" class="profile-img"
-           (click)="userProfile(user.id)" />
-      <img *ngIf="!user.image" src="assets/login/admin.png" alt="Default Profile Image" class="profile-img"
-           (click)="userProfile(user.id)" />
+      <label class="image-upload">
+        <input type="file" (change)="onImageChange($event)" accept="image/*" />
+        <div class="image-preview">
+          <img *ngIf="user.image" [src]="user.image" alt="Profile Image" class="profile-img" />
+          <img *ngIf="!user.image" src="assets/login/admin.png" alt="Default Profile Image" class="profile-img" />
+        </div>
+        <span class="upload-text">Change Profile Image</span>
+      </label>
     </div>
 
-    <!-- Name Field -->
-    <div class="form-group">
-      <label for="userName">Name</label>
-      <input type="text" id="userName" [(ngModel)]="user.name" name="userName" placeholder="Enter user's name" required />
-    </div>
+    <!-- User Form Fields -->
+    <div class="edit-user-form">
+      <div class="form-group">
+        <label for="userId">User ID</label>
+        <input type="text" id="userId" [(ngModel)]="user.id" name="userId" placeholder="User ID" required readonly />
+      </div>
 
-    <!-- Id Field -->
-    <div class="form-group">
-      <label for="userId">Id</label>
-      <input type="text" id="userId" [(ngModel)]="user.id" name="userId" placeholder="Enter user's ID" required readonly />
-    </div>
+      <div class="form-group">
+        <label for="userName">Name</label>
+        <input type="text" id="userName" [(ngModel)]="user.name" name="userName" placeholder="Enter user's name" required />
+      </div>
 
-    <!-- Roles Field -->
-    <div class="form-group">
-      <label for="userRole">Role</label>
-      <input type="text" id="userRole" [(ngModel)]="user.role" name="userRole" placeholder="Enter user role" required />
-    </div>
+      <div class="form-group">
+        <label for="userAddress">Address</label>
+        <input type="text" id="userAddress" [(ngModel)]="user.address" name="userAddress" placeholder="Enter user's address" required />
+      </div>
 
-    <!-- Privilege Field (Dropdown) -->
-    <div class="form-group">
-      <label for="userPrivilege">Privilege</label>
-      <select id="userPrivilege" [(ngModel)]="user.privilege" name="userPrivilege" required>
-        <option value="Full Access">Full Access</option>
-        <option value="Limited Access">Limited Access</option>
-        <option value="User">User</option>
-        <option value="Admin">Admin</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="userEmail">Email</label>
+        <input type="email" id="userEmail" [(ngModel)]="user.email" name="userEmail" placeholder="Enter user's email" required />
+      </div>
 
-    <!-- Phone Field -->
-    <div class="form-group">
-      <label for="userPhone">Phone</label>
-      <input type="tel" id="userPhone" [(ngModel)]="user.phone" name="userPhone" placeholder="Enter user's phone number" required />
-    </div>
+      <div class="form-group">
+        <label for="userBloodGroup">Blood Group</label>
+        <select id="userBloodGroup" [(ngModel)]="user.bloodGroup" name="userBloodGroup" required>
+          <option value="A+">A+</option>
+          <option value="B+">B+</option>
+          <option value="O+">O+</option>
+          <option value="AB+">AB+</option>
+          <option value="A-">A-</option>
+          <option value="B-">B-</option>
+          <option value="O-">O-</option>
+          <option value="AB-">AB-</option>
+        </select>
+      </div>
 
-    <!-- Blood Group Field -->
-    <div class="form-group">
-      <label for="userBloodGroup">Blood Group</label>
-      <input type="text" id="userBloodGroup" [(ngModel)]="user.bloodGroup" name="userBloodGroup" placeholder="Enter user's blood group" required />
-    </div>
+      <div class="form-group">
+        <label for="userPanNumber">PAN Number</label>
+        <input type="text" id="userPanNumber" [(ngModel)]="user.panNumber" name="userPanNumber" placeholder="Enter user's PAN number" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="Enter user's phone number" required />
+      </div>
 
-    <!-- PAN Number -->
-    <div class="form-group">
-      <label for="userPanNumber">PAN Number</label>
-      <input type="text" id="userPanNumber" [(ngModel)]="user.panNumber" name="userPanNumber" placeholder="Enter user's PAN number" required />
-    </div>
-
-    <!-- Status Field -->
-    
-    <!-- Buttons -->
-    <div class="buttons">
-      <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
-      <button type="submit" class="save-btn">Save Changes</button>
+      <div class="form-group">
+        <label for="userRole">Role</label>
+        <select id="userRole" [(ngModel)]="user.role" name="userRole" required>
+          <option value="admin">Admin</option>
+          <option value="editor">Editor</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+      
+      <!-- Privilege Checkboxes -->
+      <div class="form-group">
+        <label>Privileges</label>
+        <div *ngFor="let privilege of availablePrivileges">
+          <label>
+            <input type="checkbox" [value]="privilege" (change)="updatePrivileges($event)" 
+                   [checked]="user.privileges.includes(privilege)" />
+            {{ privilege }}
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" [(ngModel)]="user.password" name="userPassword" placeholder="Enter password" required />
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="buttons">
+        <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+        <button type="submit" class="save-btn">Save Changes</button>
+      </div>
     </div>
   </div>
 </form>

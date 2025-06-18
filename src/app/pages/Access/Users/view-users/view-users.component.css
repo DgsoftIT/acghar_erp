@@ -49,7 +49,7 @@ body {
   padding: 5px 10px;
   width: 100%;
   max-width: 300px;
-  margin-left: -650px; /* Reduce the margin to move the bar slightly to the left */
+  margin-left: -650px; 
 }
 
 .search-bar input {

@@ -13,11 +13,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class ViewUsersComponent {
   users = [
-    { id: 1, name: 'Kalpana Bhatt', role: 'Admin', phone: '9876543210', bloodGroup: 'O+', status: 'Active', panNum: '123456', privilege: 'Full Access' },
-    { id: 2, name: 'Jarnila Thak', role: 'User', phone: '9876543211', bloodGroup: 'A-', status: 'Inactive', panNum: '654321', privilege: 'Limited Access' },
-    { id: 3, name: 'Bikash Sharma', role: 'Manager', phone: '9876543212', bloodGroup: 'B+', status: 'Active', panNum: '789123', privilege: 'Admin' },
-    { id: 4, name: 'Sujan Shrestha', role: 'User', phone: '9876543213', bloodGroup: 'AB-', status: 'Inactive', panNum: '456789', privilege: 'User' },
-    { id: 5, name: 'Anjana Rai', role: 'HR', phone: '9876543214', bloodGroup: 'O-', status: 'Active', panNum: '321654', privilege: 'HR' },
+    { id: 'USER-1', name: 'Kalpana Bhatt', phone: '9876543210', email: 'kalpana@example.com', bloodGroup: 'O+', role: 'Admin', privilege: ['Dashboard ..'] },
+    { id: 'USER-2', name: 'Jarnila Thak', phone: '9876543211', email: 'jarnila@example.com', bloodGroup: 'A-', role: 'User', privilege: ['User Access ..'] },
+    { id: 'USER-3', name: 'Bikash Sharma', phone: '9876543212', email: 'bikash@example.com', bloodGroup: 'B+', role: 'Manager', privilege: ['Admin ..', ] },
+    { id: 'USER-4', name: 'Sujan Shrestha', phone: '9876543213', email: 'sujan@example.com', bloodGroup: 'AB-', role: 'User', privilege: ['User ..'] },
+    { id: 'USER-5', name: 'Anjana Rai', phone: '9876543214', email: 'anjana@example.com', bloodGroup: 'O-', role: 'HR', privilege: [ 'Admin ..'] },
   ];
 
   constructor(private router: Router) {}
@@ -31,7 +31,7 @@ export class ViewUsersComponent {
   }
 
   viewUser(user: any) {
-    this.router.navigate(['/user-profile', user.id]);  // ✅ Navigate to User Profile
+    this.router.navigate(['/user-profile', user.id]);  
   }
 
   deleteUser(user: any) {

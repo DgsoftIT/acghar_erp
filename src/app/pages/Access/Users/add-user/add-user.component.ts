@@ -1,41 +1,62 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-user',
-  standalone: true, // Required for Standalone Components
+  selector: 'app-add-user',
+  standalone: true,
   templateUrl: './add-user.component.html',
-  imports: [CommonModule, FormsModule], // Add CommonModule and FormsModule
+  imports: [CommonModule, FormsModule, RouterModule], 
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent {
-  user = {
-    id: 0,
+  user: any = {
+    id: '',
     name: '',
-    role: '',
-    privilege: 'User',   // Default value for privilege
-    phone: '',
+    address: '',
+    email: '',
     bloodGroup: '',
     panNumber: '',
-    status: '',
-    image: ''  
+    phoneNumber: '',
+    password: '',
+    image: '',
+    role: '',
+    privileges: [] // ✅ Added missing privileges array
   };
 
-  constructor(private router: Router) {}
+  availablePrivileges = ['View Dashboard', 'Manage Users', 'Edit Content', 'Delete Posts']; // ✅ Added this
+  
+  constructor() {}
 
   saveUser() {
     console.log('User saved:', this.user);
-    // You can call an API to save the user or navigate back to users list
   }
 
   cancelEdit() {
     console.log('Edit canceled');
-    this.router.navigate(['/users']);
   }
 
-  userProfile(userId: number) {
-    console.log('Viewing profile of user ID:', userId);
+  onImageChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.user.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
   }
+
+  updatePrivileges(event: any) {
+    const privilege: string = event.target.value;
+    if (event.target.checked) {
+      if (!this.user.privileges.includes(privilege)) {
+        this.user.privileges = [...this.user.privileges, privilege]; 
+      }
+    } else {
+      this.user.privileges = this.user.privileges.filter((p: string) => p !== privilege);
+    }
+  }
+  
 }

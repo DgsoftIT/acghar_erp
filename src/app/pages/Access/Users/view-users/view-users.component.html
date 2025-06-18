@@ -1,4 +1,3 @@
-<!-- Google Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -10,7 +9,7 @@
         <div class="search-bar">
             <input type="text" placeholder="Search by name/roles">
             <button class="search-btn">
-              <i class="material-icons custom-icon">search</i> 
+                <i class="material-icons custom-icon">search</i> 
             </button>
         </div>
         <button class="add-btn" (click)="goToAddUser()">
@@ -22,39 +21,36 @@
     <table>
         <thead>
             <tr>
-                <th><input type="checkbox"></th>
+                <th>S.N.</th>
+                <th>User ID</th>
                 <th>Name</th>
-                <th>Id</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Blood Group</th>
                 <th>Roles</th>
                 <th>Privilege</th>
-                <th>Phone</th>
-                <th>Blood Group</th>
-                <th>Pan No</th>
-                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of paginatedUsers">
-                <td><input type="checkbox"></td>
+            <tr *ngFor="let user of paginatedUsers; let i = index">
+                <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td> <!-- Serial Number -->
+                <td>{{ user.id }}</td> <!-- User ID -->
                 <td>{{ user.name }}</td>
-                <td>{{ user.id }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.bloodGroup }}</td>
                 <td>{{ user.role }}</td>
                 
-                <!-- Privilege dropdown -->
+                <!-- Show all privileges, append '...' if multiple -->
                 <td>
-                    <select [(ngModel)]="user.privilege">
-                        <option value="Full Access">Full Access</option>
-                        <option value="Limited Access">Limited Access</option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-                    </select>
+                    <span *ngFor="let privilege of user.privilege; let last = last">
+                        {{ privilege }}<span *ngIf="!last">, </span>
+                    </span>
+                    <!-- Add '...' for multiple privileges -->
+                    <span *ngIf="user.privilege.length > 1">...</span>
                 </td>
-                
-                <td>{{ user.phone }}</td>
-                <td>{{ user.bloodGroup }}</td>
-                <td>{{ user.panNum }}</td>
-                <td>{{ user.status }}</td>
+
                 <td class="actions">
                     <i class="fa-solid fa-pen edit" (click)="editUser(user)"></i>
                     <i class="fa-solid fa-eye view" (click)="viewUser(user)"></i>

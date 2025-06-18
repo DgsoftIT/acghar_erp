@@ -10,22 +10,21 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./view-privilege.component.css']
 })
 export class ViewPrivilegeComponent {
-
   users = [
-    { id: 1, name: 'Srijana Ghimire', privileges: ['Dashboard', 'Sales'] },
-    { id: 2, name: 'Sunita Dulal', privileges: ['Sales', 'Catalogue'] },
-    { id: 3, name: 'Nabin Chaudhari', privileges: ['Dashboard', 'Catalogue'] }
+    { id: 1, name: 'Dashboard' },
+    { id: 2, name: 'Catagory' },
+    { id: 3, name: 'Access' }
   ];
-
+  
   constructor(private router: Router) {}
 
   goToAddPrivilege() {
-    this.router.navigate(['/add-privilege']);  
+    this.router.navigate(['/add-privilege']);
   }
 
   editUser(user: any) {
     console.log('Editing user:', user);
-    this.router.navigate(['/edit-privilege', user.id]); // Fixed Route
+    this.router.navigate(['/edit-privilege', user.id]);
   }
 
   viewUser(user: any) {
@@ -34,8 +33,6 @@ export class ViewPrivilegeComponent {
 
   deleteUser(user: any) {
     console.log('Deleting user:', user);
-    
-    // Remove user from list
     this.users = this.users.filter(u => u.id !== user.id);
   }
 }

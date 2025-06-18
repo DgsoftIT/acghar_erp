@@ -10,30 +10,15 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
   styleUrls: ['./edit-privilege.component.css'],
 })
 export class EditPrivilegeComponent {
-  user: any = { id: '', name: '', privileges: [] };
+  user: any = { privilegeTitle: '', privileges: [] }; // Removed ID & Name
   availablePrivileges = [
     'Dashboard', 'Sales', 'Catalog', 'Home Page', 'Content Section', 
     'E-commerce Setting', 'CMS', 'Access Report', 'Employee', 'Vendor'
   ];
-  selectedPrivilege: string = ''; // Store selected privilege
-  showCheckboxes = false; // Control visibility of checkboxes
+  selectedPrivilege: string = ''; 
+  showCheckboxes = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    const userId = this.route.snapshot.paramMap.get('id');
-    this.loadUserData(userId);
-  }
-
-  loadUserData(userId: string | null) {
-    const users = [
-      { id: '1', name: 'Srijana Ghimire', privileges: ['Dashboard', 'Sales'] },
-      { id: '2', name: 'Sunita Dulal', privileges: ['Sales'] },
-      { id: '3', name: 'Nabin Chaudhari', privileges: ['Catalog', 'Reports'] }
-    ];
-
-    if (userId) {
-      this.user = users.find(user => user.id === userId) || { id: '', name: '', privileges: [] };
-    }
-  }
+  constructor(private router: Router) {}
 
   togglePrivilege(privilege: string) {
     if (this.user.privileges.includes(privilege)) {
@@ -43,13 +28,12 @@ export class EditPrivilegeComponent {
     }
   }
 
-  // Show checkboxes after selecting a privilege
   onPrivilegeSelect() {
-    this.showCheckboxes = true; // Show checkboxes when dropdown is selected
+    this.showCheckboxes = true;
   }
 
   onSubmit() {
-    console.log('Updated User:', this.user);
+    console.log('Updated Privilege:', this.user);
     this.router.navigate(['/view-privilege']);
   }
 

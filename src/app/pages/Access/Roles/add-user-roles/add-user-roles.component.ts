@@ -1,35 +1,43 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-user-roles',
-  standalone: true, 
-  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-user-roles.component.html',
-  styleUrls: ['./add-user-roles.component.css']
+  imports: [CommonModule, RouterModule, FormsModule],
+  styleUrls: ['./add-user-roles.component.css'],
 })
 export class AddUserRolesComponent {
-  addUserForm = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    roles: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
-    privilege: new FormControl('User', [Validators.required])  // Added privilege control
-  });
+  newUser: any = { id: '', name: '', roles: [] };
+  availableRoles = [
+    'Super Admin', 'Admin', 'Supervisor', 'Team Leader', 
+    'Employee', 'User', 'Trainee', 'Guest'
+  ];
+  selectedRole: string = '';
+  showCheckboxes = false;
 
-  get name() { return this.addUserForm.get('name'); }
-  get email() { return this.addUserForm.get('email'); }
-  get roles() { return this.addUserForm.get('roles'); }
-  get phoneNumber() { return this.addUserForm.get('phoneNumber'); }
-  get privilege() { return this.addUserForm.get('privilege'); }
+  constructor(private router: Router) {}
+
+  toggleRole(role: string) {
+    if (this.newUser.roles.includes(role)) {
+      this.newUser.roles = this.newUser.roles.filter((r: string) => r !== role);
+    } else {
+      this.newUser.roles.push(role);
+    }
+  }
+
+  onRoleSelect() {
+    this.showCheckboxes = true;
+  }
 
   onSubmit() {
-    if (this.addUserForm.valid) {
-      console.log('User Added:', this.addUserForm.value);
-      alert('User Added Successfully!');
-    } else {
-      alert('Please fill all fields correctly.');
-    }
+    console.log('New User Roles:', this.newUser);
+    this.router.navigate(['/view-user-roles']);
+  }
+
+  onCancel() {
+    this.router.navigate(['/view-user-roles']);
   }
 }

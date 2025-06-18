@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class ViewUserRolesComponent implements OnInit {
   users = [
     { id: 1, name: 'Sunita Dulal', roles: 'Admin', privilege: 'Full', status: 'Active', image: 'assets/login/admin.png' },
-    { id: 2, name: 'Sapana Poudel', roles: 'Editor', privilege: 'Limited', status: 'Inactive', image: '' },
-    { id: 3, name: 'Deepu', roles: 'User', privilege: 'Restricted', status: 'Active', image: null }
+    { id: 2, name: 'Sapana Poudel', roles: 'Accountant', privilege: 'Limited', status: 'Inactive', image: '' },
+    { id: 3, name: 'Deepu', roles: 'Tech', privilege: 'Restricted', status: 'Active', image: null }
   ];
 
   constructor(private router: Router) {}
@@ -46,7 +46,24 @@ export class ViewUserRolesComponent implements OnInit {
     this.router.navigate(['/add-user-roles']);
   }
 
-  // Handle privilege change
+  // Automatically generate a new user ID when adding a user
+  addUser(name: string, role: string, privilege: string, status: string) {
+    const newId = this.users.length > 0 ? Math.max(...this.users.map(u => u.id)) + 1 : 1;
+    
+    const newUser = {
+      id: newId,
+      name: name,
+      roles: role,
+      privilege: privilege,
+      status: status,
+      image: ''
+    };
+
+    this.users.push(newUser);
+    console.log('User added:', newUser);
+  }
+
+  // Handle role change
   onPrivilegeChange(user: any): void {
     console.log('Privilege changed for user with id:', user.id, 'New privilege:', user.privilege);
   }

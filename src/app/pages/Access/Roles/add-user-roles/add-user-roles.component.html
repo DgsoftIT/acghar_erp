@@ -1,32 +1,65 @@
 <div class="container">
-  <p><u>Add User</u></p>
+  <h2>Add User Roles</h2>
 
-  <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" class="add-user-form">
+    <!-- User Details Section (ID and Name) -->
+   <!-- User Roles Selection -->
+   <div class="form-group">
+    <label for="roles">Roles</label>
+    <select id="roles" [(ngModel)]="newUser.role" name="roles" required>
+      <option value="" disabled selected>Select a role</option>
+      <option *ngFor="let role of availableRoles" [value]="role">
+        {{ role }}
+      </option>
+    </select>
+  </div>
+
+
     <div class="form-group">
-      <label for="email">Id</label>
-      <input type="email" formControlName="email" placeholder="Enter email">
-      <div *ngIf="email?.invalid && email?.touched" class="error">Enter a valid Id.</div>
+      <label for="id">ID</label>
+      <input type="text" id="id" [(ngModel)]="newUser.id" name="id" required />
     </div>
 
+    <!-- Role Selection Section -->
     <div class="form-group">
-      <label for="roles">Roles</label>
-      <input type="text" formControlName="roles" placeholder="Enter roles">
-      <div *ngIf="roles?.invalid && roles?.touched" class="error">Roles are required.</div>
-    </div>
-
-    <div class="form-group">
-      <label for="userPrivilege">Privilege</label>
-      <select id="userPrivilege" formControlName="privilege" required>
-        <option value="Full Access">Full Access</option>
-        <option value="Limited Access">Limited Access</option>
-        <option value="User">User</option>
-        <option value="Admin">Admin</option>
+      <label>Select Privilege</label>
+      
+      <!-- Dropdown to select role -->
+      <select id="role" [(ngModel)]="selectedRole" name="role" class="dropdown" (change)="onRoleSelect()">
+        <option value="" disabled selected>Select a Privilege</option>
+        <option *ngFor="let role of availableRoles" [value]="role">
+          {{ role }}
+        </option>
       </select>
-      <div *ngIf="privilege?.invalid && privilege?.touched" class="error">Privilege is required.</div>
+
+      <!-- Show checkboxes when a role is selected -->
+      <div *ngIf="showCheckboxes" class="checkbox-group">
+        <label *ngFor="let role of availableRoles">
+          <input type="checkbox" [value]="role" (change)="toggleRole(role)" 
+                 [checked]="newUser.roles.includes(role)" />
+          {{ role }}
+        </label>
+      </div>
     </div>
 
-    <button class="save-btn" [disabled]="addUserForm.invalid">
-      <i class="bi bi-save2"></i> Save
-    </button>
+    <!-- Assigned Roles Section -->
+    <div class="form-group">
+      <label for="assign-roles">Assigned Privilege</label>
+      <div class="selected-roles">
+        <div *ngFor="let role of newUser.roles">
+          <span>{{ role }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="buttons">
+      <button type="submit" class="save-btn">
+        <i class="fa-solid fa-save"></i>Save
+      </button>
+      <button type="button" class="cancel-btn" (click)="onCancel()">
+        <i class="fa-solid fa-xmark"></i> Cancel
+      </button>
+    </div>
   </form>
 </div>
