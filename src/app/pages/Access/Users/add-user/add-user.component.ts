@@ -22,10 +22,10 @@ export class AddUserComponent {
     password: '',
     image: '',
     role: '',
-    privileges: [] // ✅ Added missing privileges array
+    privileges: [] 
   };
 
-  availablePrivileges = ['View Dashboard', 'Manage Users', 'Edit Content', 'Delete Posts']; // ✅ Added this
+  availablePrivileges = ['View Dashboard', 'Manage Users', 'Edit Content', 'Delete Posts']; 
   
   constructor() {}
 

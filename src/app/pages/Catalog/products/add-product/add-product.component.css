@@ -1,0 +1,232 @@
+
+.add-categories {
+  margin-top: 2rem; 
+  margin-left: 20rem; 
+  padding: 2rem; 
+  border-radius: 1.25rem; 
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;  
+}
+
+.add:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+
+.field1, .field2, .field3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem; 
+  margin-bottom: 0.9375rem; 
+}
+
+.field4 {
+  margin-bottom: 0.9375rem; 
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  width: 48%; 
+  border-radius: 0.75rem; 
+  padding: 0.75rem; 
+}
+
+.form-group label {
+  font-size: 0.875rem; 
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input, .category-select, .product-type-select {
+  padding: 0.75rem; 
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-size: 0.875rem; 
+  transition: border 0.3s ease;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1); 
+  width: 100%;
+}
+
+.form-group input:focus, .category-select:focus, .product-type-select:focus {
+  border-color: #7BC0F4;
+  outline: none;
+}
+
+.save {
+  background-color: #7BC0F4;
+  color: black;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem; 
+  border-radius: 1.875rem; 
+  cursor: pointer;
+  width: 6.25rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-top: 4rem; 
+}
+
+.seo {
+  margin-top: 1rem; 
+}
+
+.active-status {
+  margin-top: 2rem;
+}
+
+.active-status br {
+  margin-bottom: 0.3125rem; 
+}
+
+@media (max-width: 48rem) { 
+  .add-categories {
+    margin-left: 1rem; 
+    padding: 1.5rem; 
+  }
+
+  .field1, .field2, .field3, .prices {
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .image-upload {
+    font-size: 0.875rem; 
+  }
+}
+
+.sub-menu {
+  list-style: none;
+  padding: 0;
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.625rem; 
+}
+
+.sub-menu.show {
+  display: flex;
+}
+
+.sub-menu li {
+  width: 100%; 
+  margin-bottom: 1rem; 
+}
+
+.attributes {
+  padding-bottom: 0.9375rem; 
+  margin-right: 0.125rem; 
+  display: flex;
+}
+
+.price {
+  margin-right: 0.125rem; 
+  padding-bottom: 0.9375rem; 
+}
+
+
+.form-group-image {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;  
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+}
+
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 10px;
+  width: 100%;
+}
+
+.image-preview-item {
+  display: flex;
+  align-items: center; 
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  gap: 10px;
+  width: 48%;
+  box-sizing: border-box; 
+}
+
+.imagePreviews {
+  width: 80px;  
+  height: auto;
+  border-radius: 5px;
+}
+
+.caption-box {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-size: 0.875rem;
+  transition: border 0.3s ease;
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
+  flex-grow: 1;  
+  width: 100%;  
+  margin-left: 10px;
+}
+
+.delete-icon {
+  color: red;
+  cursor: pointer;
+  margin-left: 10px; 
+}
+
+.attributes1{
+  display: flex;
+}
+
+
+.price1{
+  display:flex;
+}
+
+.form-control{
+display: flex;
+list-style: none;
+
+
+}
+
+
+
+.keywords-list {
+  display: flex;
+  flex-wrap: wrap;  
+  gap: 10px; 
+  margin-top: 10px; 
+  padding: 0;  
+  list-style: none;  
+}
+
+
+.keyword-item {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center; 
+}
+
+.remove-keyword {
+ 
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+

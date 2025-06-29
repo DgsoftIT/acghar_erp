@@ -1,0 +1,57 @@
+.add-new{
+  background-color: #7BC0F4;
+  color: black;
+  border: none;
+  padding: 8px 13px;
+  font-size: 14px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  
+  cursor: pointer;
+  margin-left: 1730px;
+  margin-top: 2rem;
+  
+    
+  }
+  
+  .content-container {
+      margin-left: 450px; 
+      padding: 20px;
+      max-width: calc(100% - 260px); 
+      margin-top: 3rem;
+    }
+    
+    .table thead th {
+     
+      background-color: #7BC0F4;
+      color: black;
+      
+    }
+    
+    .img-thumbnail {
+      border-radius: 8px;
+    }
+    
+    .badge {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    
+      .material-icons.custom-icon {
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+  
+      .delete-icon {
+        color: red;
+      }
+  
+     .contain{
+      margin-left: 330px;
+      margin-top: 80px;
+
+     }
+
+     

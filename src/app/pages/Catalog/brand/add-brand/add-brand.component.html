@@ -1,0 +1,49 @@
+<div class="uplifted-container">
+  <div class="add-categories">
+    <div class="field1">
+      <div class="form-group">
+        <label>Brand Name</label>
+        <input type="text" [(ngModel)]="brandObj.title" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Brand URL</label>
+        <input type="text" [(ngModel)]="brandObj.url" placeholder="">
+      </div>
+    </div>
+
+    <div class="field2">
+      <div class="form-group">
+        <label>Order</label>
+        <input type="text" [(ngModel)]="brandObj.order" placeholder="">
+      </div>
+    </div>
+
+    <div class="field3">
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" [(ngModel)]="brandObj.description" placeholder="">
+      </div>
+    </div>
+
+    <div class="image-upload">
+      <input type="file" (change)="onImageSelect($event)" accept="image/*" multiple>
+      <div *ngIf="imagePreviews.length > 0">
+        <p>Image Previews:</p>
+        <div *ngFor="let img of imagePreviews; let i = index" style="position: relative; display: inline-block; margin: 5px;">
+          <img [src]="img" alt="Image Preview" style="max-width: 200px; max-height: 200px; border: 1px solid #ccc; border-radius: 8px;">
+          <span (click)="removeImage(i)" class="removeimage">&times;</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status">
+      <input type="checkbox" [(ngModel)]="categoryObj.isActive" class="form-check-input">
+      <label>Is Active / Inactive</label>
+    </div>
+
+    <div class="buttons">
+      <button class="clear" (click)="clearForm()">Clear</button>
+      <button class="save" (click)="saveCategory()">Save</button>
+    </div>
+  </div>
+</div>

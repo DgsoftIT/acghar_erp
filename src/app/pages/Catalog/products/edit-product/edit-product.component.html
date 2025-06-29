@@ -1,0 +1,140 @@
+<div class="add-categories">
+
+    <div class="field1">
+      <div class="form-group">
+        <label>Product Name</label>
+        <input type="text" [(ngModel)]="productObj.productName" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Product URL</label>
+        <input type="text" [(ngModel)]="productObj.productUrl" placeholder="">
+      </div>
+    </div>
+  
+    <div class="field2">
+      <div class="form-group">
+        <label>Model Number</label>
+        <input type="text" [(ngModel)]="productObj.productModelNumber" placeholder="">
+      </div>
+      
+      <div class="form-group">
+        <label>Category</label>
+        <select [(ngModel)]="productObj.categoryId" class="category-select">
+          <option *ngFor="let category of categoryList" [value]="category.id">{{ category.categoryTitle }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="field3">
+      <div class="form-group">
+        <label>Product Type</label>
+        <select [(ngModel)]="productObj.productType" class="product-type-select">
+          Select Product Type
+          <option value="Used">Used</option>
+          <option value="Brand New">Brand New</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Brand</label>
+        <input type="text" [(ngModel)]="productObj.brandId" placeholder="">
+      </div>
+    </div>
+  
+    <div class="field4">
+      <div class="form-group">
+        <label>Highlights</label>
+        <input type="text" [(ngModel)]="productObj.productHighlights" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" [(ngModel)]="productObj.productDescription" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Specification</label>
+        <input type="text" [(ngModel)]="productObj.productSpecification" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Additional Info</label>
+        <input type="text" [(ngModel)]="productObj.additionalInfo" placeholder="">
+      </div>
+    </div>
+  
+    <div class="attributes" (click)="toggleSubMenu()">
+      <div class="nav-text"><b>ATTRIBUTES</b></div>
+    </div>
+  
+    <ul class="sub-menu" [ngClass]="{ 'show': isSubMenuVisible }">
+      <li class="form-group">
+        <label>Weight (KG)</label>
+        <input type="text" [(ngModel)]="productObj.productWeight" placeholder="">
+      </li>
+      <li class="form-group">
+        <label>Width</label>
+        <input type="text" [(ngModel)]="productObj.productWidth" placeholder="">
+      </li>
+      <li class="form-group">
+        <label>Height</label>
+        <input type="text" [(ngModel)]="productObj.productHeight" placeholder="">
+      </li>
+      <li class="form-group">
+        <label>Length</label>
+        <input type="text" [(ngModel)]="productObj.productLength" placeholder="">
+      </li>
+    </ul>
+  
+    <div class="price" (click)="toggleSubMenuPrices()">
+      <div class="nav-text"><b>PRICES</b></div>
+    </div>
+  
+    <ul class="sub-menu" [ngClass]="{ 'show': isSubMenuPricesVisible }">
+      <li class="form-group">
+        <label>Price</label>
+        <input type="text" [(ngModel)]="productObj.price" placeholder="">
+      </li>
+      <li class="form-group">
+        <label>Offer Price</label>
+        <input type="text" [(ngModel)]="productObj.offerPrice" placeholder="">
+      </li>
+      <li class="form-group">
+        <label>Percentage</label>
+        <input type="text" [(ngModel)]="productObj.discountPercentage" placeholder="">
+      </li>
+    </ul>
+  
+    <div class="image" (click)="toggleSubMenuImages()">
+      <div class="nav-text"><b>IMAGES AND VIDEO</b></div>
+    </div>
+  
+    <ul class="sub-menu" [ngClass]="{ 'show': isSubMenuImagesVisible }">
+      <div class="image-upload">Image</div>
+    </ul>
+  
+    <div class="seo" (click)="toggleSubMenuSEO()">
+      <div class="nav-text"><b>SEO</b></div>
+    </div>
+  
+    <ul class="sub-menu" [ngClass]="{ 'show': isSubMenuSEOVisible }">
+      <div class="form-group">
+        <label>Meta Title</label>
+        <input type="text" [(ngModel)]="productObj.metatitle" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Meta Keyword</label>
+        <input type="text" [(ngModel)]="productObj.metaKeyword" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" [(ngModel)]="productObj.seoDescription" placeholder="">
+      </div>
+    </ul>
+  
+    <div class="active-status">
+      <b>ACTIVE STATUS</b>
+      <div><input type="checkbox" [(ngModel)]="productObj.isOffer"> Is Offer</div>
+      <div><input type="checkbox" [(ngModel)]="productObj.isPublished"> Is Published? </div>
+    </div>
+  
+    <button class="save" (click)="saveProduct()">Save</button>
+  
+  </div>

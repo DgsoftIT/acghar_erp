@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
@@ -15,11 +15,27 @@ export class SidenavComponent {
 
   toggleCatalogSubMenu() {
     this.isCatalogSubMenuVisible = !this.isCatalogSubMenuVisible;
-    
+    // Optionally close the other submenu
+    if (this.isCatalogSubMenuVisible) {
+      this.isAccessSubMenuVisible = false;
+    }
   }
 
   toggleAccessSubMenu() {
     this.isAccessSubMenuVisible = !this.isAccessSubMenuVisible;
-    
+    // Optionally close the other submenu
+    if (this.isAccessSubMenuVisible) {
+      this.isCatalogSubMenuVisible = false;
+    }
+  }
+
+  // Optional: Close submenus when clicking outside the sidebar
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    const clickedInside = (event.target as HTMLElement).closest('.nav-items');
+    if (!clickedInside) {
+      this.isCatalogSubMenuVisible = false;
+      this.isAccessSubMenuVisible = false;
+    }
   }
 }

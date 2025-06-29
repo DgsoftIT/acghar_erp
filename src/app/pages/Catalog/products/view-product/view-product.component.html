@@ -1,0 +1,63 @@
+<button class="add-new" (click)="goToAddProduct()">
+  <i class="material-icons custom-icon">add</i>
+  Add new
+</button>
+
+<div class="contain">
+  <h2 class="fw-semibold" style="font-size: 18px;">Products</h2>
+  <div class="row mb-3">
+    <div class="col-md-4 mb-2">
+      <input type="text" class="form-control" placeholder="Search by Title" [(ngModel)]="searchTitle">
+    </div>
+    <div class="col-md-4 mb-2">
+      <input type="text" class="form-control" placeholder="Search by SKU" [(ngModel)]="searchSKU">
+    </div>
+    <div class="col-md-4 mb-2">
+      <input type="text" class="form-control" placeholder="Search by Brand" [(ngModel)]="searchBrand">
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle rounded-lg overflow-hidden">
+      <thead class="bg-dark text-white">
+        <tr>
+          <th><input type="checkbox" (change)="selectAll($event)" class="form-check-input"></th>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>SKU</th> 
+          <th>Price</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        <tr *ngFor="let product of filteredProducts()">
+          <td><input type="checkbox" [(ngModel)]="product.selected" class="form-check-input"></td>
+          <td>{{ product.id }}</td>
+          <td><img [src]="product.image" alt="Product Image" class="img-thumbnail rounded" width="60"></td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.sku }}</td> 
+          <td>Rs. {{ product.price }}</td>
+          <td>
+            <span class="badge" 
+              [ngClass]="{'bg-success': product.status === 'Active', 'bg-danger': product.status === 'Inactive'}">
+              {{ product.status }}
+            </span>
+          </td>
+          <td>
+       
+            <button class="btn btn-sm me-1 rounded" (click)="editProduct(product)">
+              <i class="material-icons custom-icon">edit</i> 
+            </button>
+
+            
+            <button class="btn btn-sm rounded" (click)="deleteProduct(product)">
+              <i class="material-icons custom-icon delete-icon">delete</i> 
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<button class="add-new" (click)="goToAddBrand()">
+  <i class="material-icons custom-icon">add</i> Add New
+</button>
+
+<div class="contain">
+  <h2 class="fw-semibold" style="font-size: 18px;">Brand List</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-4 mb-2">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Brand"
+        [(ngModel)]="searchBrand"
+        (ngModelChange)="filterCategories()" />
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle rounded-lg overflow-hidden">
+      <thead class="bg-dark text-white">
+        <tr>
+          <th><input type="checkbox" (change)="selectAll($event)" class="form-check-input" /></th>
+          <th>Title</th>
+          <th>URL Key</th>
+          <th>Order</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let brand of filteredBrands">
+          <td><input type="checkbox" [(ngModel)]="brand.selected" class="form-check-input" /></td>
+          <td>{{ brand.title }}</td>
+          <td>{{ brand.urlKey }}</td>
+          <td>
+            <button class="btn btn-sm me-1 rounded" (click)="editBrand(brand)">
+              <i class="material-icons custom-icon">edit</i>
+            </button>
+            <button class="btn btn-sm rounded" (click)="deleteBrand(brand)">
+              <i class="material-icons custom-icon delete-icon">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

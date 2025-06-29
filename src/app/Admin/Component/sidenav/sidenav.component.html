@@ -37,20 +37,23 @@
   </div>
 
   <!-- Catalog Menu with Dropdown -->
-  <div class="nav-item" (click)="toggleCatalogSubMenu()">
-    <div class="nav-text">
-      <i class="material-icons custom-icon">category</i>
-      Catalog
-      <i class="material-icons custom-icon" [ngClass]="isCatalogSubMenuVisible ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"></i>
-    </div>
+<div class="nav-item" (click)="toggleCatalogSubMenu()">
+  <div class="nav-text">
+    <i class="material-icons custom-icon">category</i>
+    Catalog
+    <i class="material-icons custom-icon">
+      {{ isCatalogSubMenuVisible ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+    </i>
   </div>
-  <ul class="sub-menu1" [ngClass]="{ 'show': isCatalogSubMenuVisible }">
-    <li><a routerLink="/admin/category"><i class="material-icons custom-icon">density_medium</i>Category</a></li>
-    <li><a routerLink="/admin/product"><i class="material-icons custom-icon">inventory</i>Product</a></li>
-    <li><a routerLink="/admin/brand"><i class="material-icons custom-icon">storage</i>Brand</a></li>
-    <li><a routerLink="/admin/product-type"><i class="material-icons custom-icon">toc</i>Product Type</a></li>
-    <li><a routerLink="/admin/product-custom-attribute"><i class="material-icons custom-icon">low_priority</i>Product Custom Attribute</a></li>
-  </ul>
+</div>
+<ul class="sub-menu1" [ngClass]="{ 'show': isCatalogSubMenuVisible }">
+  <li><a routerLink="/admin/view-category"><i class="material-icons custom-icon">density_medium</i>Category</a></li>
+  <li><a routerLink="/admin/view-product"><i class="material-icons custom-icon">inventory</i>Products</a></li>
+  <li><a routerLink="/admin/view-brand"><i class="material-icons custom-icon">storage</i>Brand</a></li>
+  <li><a routerLink="/admin/product-type"><i class="material-icons custom-icon">toc</i>Product Type</a></li>
+  <li><a routerLink="/admin/product-custom-attribute"><i class="material-icons custom-icon">low_priority</i>Product Custom Attribute</a></li>
+</ul>
+
 
   <div class="nav-item">
     <i class="material-icons custom-icon">home</i>
@@ -79,7 +82,6 @@
   </div>
   <ul class="sub-menu2" [ngClass]="{ 'show': isAccessSubMenuVisible }">
     <li><a routerLink="/view-users"><i class="material-icons custom-icon">group</i>User</a></li>
-    
     <li><a routerLink="/view-user-roles"><i class="material-icons custom-icon">badge</i>Roles</a></li>
     <li><a routerLink="/view-privilege"><i class="material-icons custom-icon">military_tech</i>Privilege</a></li>
     <li><a routerLink="/vendor-list"><i class="material-icons custom-icon">supervisor_account</i>Vendor Profile</a></li>

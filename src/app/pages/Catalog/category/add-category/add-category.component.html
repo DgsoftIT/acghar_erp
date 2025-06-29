@@ -1,0 +1,196 @@
+<div class="uplifted-container">
+  <div class="add-categories">
+
+    <!-- Category Name and URL -->
+    <div class="field1">
+      <div class="form-group">
+        <label for="categoryName">Category Name</label>
+        <input 
+          id="categoryName" 
+          type="text" 
+          [(ngModel)]="categoryObj.categoryTitle" 
+          placeholder="Category Name" 
+          (ngModelChange)="convertToUrl()"
+        />
+      </div>
+      <div class="form-group">
+        <label for="categoryUrl">Category URL</label>
+        <input 
+          id="categoryUrl" 
+          type="text" 
+          [(ngModel)]="categoryObj.categoryUrl" 
+          placeholder="Category URL" 
+          readonly
+        />
+      </div>  
+    </div>
+
+    <div class="form-group">
+      <label for="categoryType">Category Type</label>
+      <input 
+        id="categoryType" 
+        type="text" 
+        class="form-control" 
+        placeholder="Select Category Type" 
+        [(ngModel)]="selectedCategoryText" 
+        readonly 
+        (click)="toggleCategoryModal()"
+      />
+    </div>
+    
+    <!-- Category Selection Modal -->
+<div class="category-modal" *ngIf="isCategoryModalVisible">
+  <p>Available Categories</p>
+
+  <div class="category-container">
+    <!-- Main Categories -->
+    <div class="category-column">
+      <input type="text" placeholder="Keyword" class="search-input" />
+      <ul>
+        <li *ngFor="let category of categories" 
+            (click)="onSelectCategory(category)" 
+            [class.selected]="category === selectedCategory">
+          {{ category.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Sub Categories -->
+    <div class="category-column" *ngIf="selectedCategory?.subCategories?.length">
+      <ul>
+        <li *ngFor="let subCategory of selectedCategory?.subCategories" 
+            (click)="onSelectSubCategory(subCategory)" 
+            [class.selected]="subCategory === selectedSubCategory">
+          {{ subCategory.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Child Categories -->
+    <div class="category-column" *ngIf="selectedSubCategory?.childCategories?.length">
+      <ul>
+        <li *ngFor="let childCategory of selectedSubCategory?.childCategories" 
+            (click)="onSelectChildCategory(childCategory)" 
+            [class.selected]="childCategory === selectedChildCategory">
+          {{ childCategory }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Selected Category Display -->
+  <div class="selected-category">
+    <strong>Selected Category:</strong>
+    <span *ngIf="selectedCategory">{{ selectedCategory.name }}</span>
+    <span *ngIf="selectedSubCategory"> / {{ selectedSubCategory.name }}</span>
+    <span *ngIf="selectedChildCategory"> / {{ selectedChildCategory }}</span>
+  </div>
+
+  <!-- Modal Action Buttons -->
+  <div class="action-buttons">
+    <button class="select-btn" (click)="confirmCategorySelection()">Select Category</button>
+    <button class="cancel-btn" (click)="toggleCategoryModal()">Cancel</button>
+  </div>
+</div>
+
+    <!-- Meta Information -->
+    <div class="field3">
+      <div class="form-group">
+        <label for="metaTagTitle">Meta Tag Title</label>
+        <input 
+          id="metaTagTitle" 
+          type="text" 
+          [(ngModel)]="categoryObj.metaTagTitle" 
+          placeholder="Meta Tag Title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="metaKeyword">Meta Keyword</label>
+        <input 
+          id="metaKeyword" 
+          type="text" 
+          [(ngModel)]="newKeyword" 
+          placeholder="Meta Keywords"
+        />
+        <button (click)="addKeyword()">Add Keyword</button>
+<div *ngIf="categoryObj.metaKeyword && categoryObj.metaKeyword.length > 0">
+
+          <ul>
+            <li *ngFor="let keyword of categoryObj.metaKeyword; let i = index">
+              {{ keyword }} 
+              <button (click)="removeKeyword(i)">Remove</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Description Fields -->
+    <div class="field4">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input 
+          id="description" 
+          type="text" 
+          [(ngModel)]="categoryObj.description" 
+          placeholder="Category Description"
+        />
+      </div>
+      <div class="form-group">
+        <label for="metaDescription">Meta Description</label>
+        <input 
+          id="metaDescription" 
+          type="text" 
+          [(ngModel)]="categoryObj.metaDescription" 
+          placeholder="Meta Description"
+        />
+      </div>
+    </div>
+
+    <!-- Image Upload -->
+    <div class="image-upload">
+      <label class="custom-file-label" for="file-input">Upload from Media</label>
+      <input 
+        id="file-input" 
+        type="file" 
+        (change)="onImageSelect($event)" 
+        accept="image/*" 
+        multiple
+      />
+      <div *ngIf="imagePreviews.length > 0">
+        <p>Image Previews:</p>
+        <div *ngFor="let img of imagePreviews; let i = index" style="position: relative; display: inline-block; margin: 5px;">
+          <img 
+            [src]="img" 
+            alt="Image Preview" 
+            style="max-width: 200px; max-height: 200px; border: 1px solid #ccc; border-radius: 8px;"
+          />
+          <span 
+            (click)="removeImage(i)" 
+            class="removeimage" 
+            style="position: absolute; top: 5px; right: 5px; cursor: pointer; background: #ff0000; color: #fff; border-radius: 50%; padding: 2px 6px;">
+            &times;
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Status -->
+    <div class="status">
+      <input 
+        type="checkbox" 
+        [(ngModel)]="categoryObj.isActive" 
+        class="form-check-input" 
+        id="isActive"
+      />
+      <label for="isActive">Is Active / Inactive</label>
+    </div>
+
+    <!-- Form Action Buttons -->
+    <div class="buttons">
+      <button class="clear" (click)="clearForm()">Clear</button>
+      <button class="save" (click)="saveCategory()">Save</button>
+    </div>
+
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { Users} from '../pages/models/Users.model';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiUrl = 'http://localhost:8080/api/users'; // Update with your backend URL
+  private apiUrl = 'http://localhost:8080/api/users'; //  backend URL
 
   constructor(private http: HttpClient) {}
 
