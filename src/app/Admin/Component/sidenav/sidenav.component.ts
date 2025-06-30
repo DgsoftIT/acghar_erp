@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,9 +13,10 @@ export class SidenavComponent {
   isCatalogSubMenuVisible = false;
   isAccessSubMenuVisible = false;
 
+  constructor(private router: Router) {}
+
   toggleCatalogSubMenu() {
     this.isCatalogSubMenuVisible = !this.isCatalogSubMenuVisible;
-    // Optionally close the other submenu
     if (this.isCatalogSubMenuVisible) {
       this.isAccessSubMenuVisible = false;
     }
@@ -23,13 +24,11 @@ export class SidenavComponent {
 
   toggleAccessSubMenu() {
     this.isAccessSubMenuVisible = !this.isAccessSubMenuVisible;
-    // Optionally close the other submenu
     if (this.isAccessSubMenuVisible) {
       this.isCatalogSubMenuVisible = false;
     }
   }
 
-  // Optional: Close submenus when clicking outside the sidebar
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
     const clickedInside = (event.target as HTMLElement).closest('.nav-items');
@@ -37,5 +36,10 @@ export class SidenavComponent {
       this.isCatalogSubMenuVisible = false;
       this.isAccessSubMenuVisible = false;
     }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

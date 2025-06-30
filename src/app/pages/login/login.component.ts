@@ -7,7 +7,7 @@ import { RouterModule, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule], // Import RouterModule
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -15,7 +15,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   showPassword: boolean = false;
 
-  constructor(private fb: FormBuilder, private router: Router) { // Inject Router
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -28,16 +28,16 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Login Successful:', this.loginForm.value);
-      this.router.navigate(['/sidenav']);
+      // Simulate successful login
+      localStorage.setItem('token', 'dummy-token');
+this.router.navigate(['/dashboard']); // this route is under sidenav
 
     } else {
       console.log('Form is invalid');
     }
   }
-  
+
   goToForgotPassword() {
-    this.router.navigate(['/forgot-password']); 
+    this.router.navigate(['/forgot-password']);
   }
-  
 }
