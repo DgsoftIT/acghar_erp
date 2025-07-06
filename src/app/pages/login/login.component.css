@@ -9,8 +9,6 @@ html, body {
   align-items: center;
 }
 
-
-
 .login-container {
   background: white;
   padding: 100px;
@@ -19,7 +17,7 @@ html, body {
   text-align: center;
   width: 450px;
 
-  /* Centering */
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -59,7 +57,7 @@ html, body {
   cursor: pointer;
 }
 
-/* Error message */
+
 .error {
   color: red;
   font-size: 12px;

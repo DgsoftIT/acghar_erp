@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Auth Pages 
+// Public Pages
 import { LoginComponent } from './pages/login/login.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
-// Layout 
+// Layout
 import { SidenavComponent } from './Admin/Component/sidenav/sidenav.component';
 
 // Auth Guard
@@ -42,20 +42,17 @@ import { ViewBrandComponent } from './pages/Catalog/brand/view-brand/view-brand.
 import { AddBrandComponent } from './pages/Catalog/brand/add-brand/add-brand.component';
 import { EditBrandComponent } from './pages/Catalog/brand/edit-brand/edit-brand.component';
 
-//  Export the routes array (for app.config.ts if needed)
-export const routes: Routes = [
-
- 
-  //  Public Routes 
+// Routes
+export  const routes: Routes = [
+  // Public Routes
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
 
-
-  // Protected Routes 
+  // Protected Routes under admin layout
   {
-    path: '',
+    path: 'admin',
     component: SidenavComponent,
     canActivate: [AuthGuard],
     children: [
@@ -76,18 +73,22 @@ export const routes: Routes = [
       { path: 'vendor-list', component: VendorListComponent },
       { path: 'edit-vendor-list/:id', component: EditVendorListComponent },
       { path: 'add-vendor', component: AddVendorComponent },
-      { path: 'admin/view-category', component: ViewCategoryComponent },
-      { path: 'admin/view-product', component: ViewProductComponent },
-      { path: 'admin/add-product', component: AddProductComponent },
-      { path: 'admin/edit-product/:id', component: EditProductComponent },
-      { path: 'admin/add-category', component: AddCategoryComponent },
-      { path: 'admin/edit-category/:id', component: EditCategoryComponent },
-      { path: 'admin/view-brand', component: ViewBrandComponent },
-      { path: 'admin/add-brand', component: AddBrandComponent },
-      { path: 'admin/edit-brand', component: EditBrandComponent },
+      { path: 'view-category', component: ViewCategoryComponent },
+      { path: 'view-product', component: ViewProductComponent },
+      { path: 'add-product', component: AddProductComponent },
+      { path: 'edit-product/:id', component: EditProductComponent },
+      { path: 'add-category', component: AddCategoryComponent },
+      { path: 'edit-category/:id', component: EditCategoryComponent },
+      { path: 'view-brand', component: ViewBrandComponent },
+      { path: 'add-brand', component: AddBrandComponent },
+      { path: 'edit-brand', component: EditBrandComponent },
+
+      // Fallback inside admin
+      { path: '**', redirectTo: 'dashboard' }
     ]
   },
-  // Wildcard route
+
+  // Global Fallback Route
   { path: '**', redirectTo: 'login' }
 ];
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Roles } from '../pages/models/Roles.model'; // Adjust the path to match your actual directory
+import { Roles } from '../../pages/models/Roles.model'; // no extra quotes
+
 
 @Injectable({
   providedIn: 'root'

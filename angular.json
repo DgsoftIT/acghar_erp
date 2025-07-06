@@ -19,7 +19,8 @@
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+           "tsConfig": "tsconfig.app.json",
+
             "assets": [
               {
                 "glob": "**/*",

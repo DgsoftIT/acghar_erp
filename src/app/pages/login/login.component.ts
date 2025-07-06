@@ -1,8 +1,9 @@
+
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ApiService } from 'app/services/api/api.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,13 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  showPassword: boolean = false;
+  showPassword = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private api: ApiService
+  ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -27,15 +32,23 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      // Simulate successful login
-      localStorage.setItem('token', 'dummy-token');
-this.router.navigate(['/dashboard']); // this route is under sidenav
+  if (this.loginForm.valid) {
+    // For now, mock login success without backend:
+    
 
-    } else {
-      console.log('Form is invalid');
-    }
+    // MOCK login success:
+    localStorage.setItem('token', 'mock-token-12345');  
+    this.router.navigate(['/admin/dashboard']);         
+
+    // Optional: show alert or console log
+    console.log('Mock login success, token set');
+  } else {
+    alert('Please fill out all fields');
   }
+
+
+}
+
 
   goToForgotPassword() {
     this.router.navigate(['/forgot-password']);

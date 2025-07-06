@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Privilege } from '../pages/models/Privilege.model';
+import { Privilege } from '../../pages/models/Privilege.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
